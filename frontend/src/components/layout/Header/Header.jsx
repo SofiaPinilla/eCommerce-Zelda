@@ -12,10 +12,10 @@ export default function Header() {
  
     return (
       <div className="header">
-      <img src={zelda} xalt=""/>
+      <img src={zelda} alt=""/>
         <Menu  mode="horizontal">
-          <Menu.Item><Link to="/">Home</Link></Menu.Item>
-          <Menu.Item><Link to="/about">About</Link></Menu.Item>
+          <Menu.Item><Link to="/">Inicio</Link></Menu.Item>
+          <Menu.Item><Link to="/about">Acerca de</Link></Menu.Item>
 
           <SubMenu
           title={
@@ -24,15 +24,10 @@ export default function Header() {
             </>
           }
         >
-          <Menu.ItemGroup title="">
-            
          <Menu.Item key="setting:1"><Link to="/category/consolas">Consolas</Link> </Menu.Item>
         <Menu.Item key="setting:2"><Link to="/category/Videojuegos">Videojuegos</Link></Menu.Item>
         <Menu.Item key="setting:3"><Link to="/category/Amiibos">Amiibos</Link></Menu.Item>
-          </Menu.ItemGroup>
-         
         </SubMenu>
-         
         <SubMenu
           title={
             <>

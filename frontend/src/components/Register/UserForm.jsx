@@ -2,8 +2,8 @@ import React from 'react';
 import './UserForm.scss'
 import 'antd/dist/antd.css';
 import { notification } from 'antd';
-import axios from 'axios'
 import {Form,Input,Tooltip,Button} from 'antd';
+import { register } from '../../redux/actions/user';
 
 // const AutoCompleteOption = AutoComplete.Option;
 
@@ -52,7 +52,7 @@ const UserForm = (props) => {
         return notification.error({ message: 'Error', description: 'Las contraseñas no coinciden' })
     }
    
-    axios.post('http://localhost:3002/users/register', user)
+    register(user)
         .then(res => {
             notification.success({ message: 'Bienvenid@ ', description: 'Ya estas registrado '})
             setTimeout(() => props.history.push('/login') , 2000);

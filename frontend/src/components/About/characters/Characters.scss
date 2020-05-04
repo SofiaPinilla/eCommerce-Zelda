@@ -1,0 +1,15 @@
+.characters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0.3em;
+}
+
+.character {
+    margin: 0.3em;
+    width: 20vw;
+    img {
+        width: 70%;
+        height: 30vh;
+    }
+}

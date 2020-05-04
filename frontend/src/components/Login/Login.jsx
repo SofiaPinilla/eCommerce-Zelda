@@ -3,32 +3,26 @@ import 'antd/dist/antd.css';
 import './Login.scss'
 // import './index.css';
 import { notification } from 'antd';
-import axios from 'axios'
 import { Form, Input, Button, Checkbox } from 'antd';
+import { login } from '../../redux/actions/user';
 
 
 export default function Login(props) {
-  
     const onFinish = user => {
-      axios.post('http://localhost:3002/users/login', user)
-      // const authToken = res.data.user?.token
-      .then(res => {
-          notification.success({ message: 'Conectad@ con éxito', description: 'Hola ' + res.data.message })
-          
-          localStorage.setItem('authToken',res.data.token)
-          
-          setTimeout(() => {
-              props.history.push('/')
-          }, 2000);
-      })      
-      .catch(err =>{
-          notification.error({ message: 'Conexión fallida', description: 'Nombre o contraseña incorrectos'})
-          setTimeout(() => {
-              props.history.push('/login');
-              console.error(err)})
-          }, 2000);
-      };
-    
+      login(user)
+    .then(res => {
+        notification.success({ message: 'Conectad@ con éxito', description: 'Bienvenid@'})
+    // localStorage.setItem('authToken',res.data.token)
+    setTimeout(() => {
+        props.history.push('/')
+    }, 2000);
+})      
+.catch(err =>{
+    notification.error({ message: 'Conexión fallida', description: 'Nombre o contraseña incorrectos'})
+    setTimeout(() => {
+        props.history.push('/login');
+        console.error(err)})
+    }, 2000);}
       const onFinishFailed = errorInfo => {
         console.log('Failed:', errorInfo);
       };
@@ -83,6 +77,7 @@ export default function Login(props) {
         </div>
       );
 }
+
 
 const layout = {
   labelCol: {

@@ -1,38 +1,27 @@
-import React, {useEffect,useState} from 'react'
+import React, {useEffect} from 'react'
 import 'antd/dist/antd.css';
 // import { Card } from 'antd';
-import axios from 'axios';
+import {connect} from 'react-redux';
 import './Categories.scss'
 // const { Meta } = Card;
-
-const Categories = () => {
-    const [categories,setCategories] =useState([]);
- const getCategories = () => {
-        axios.get('http://localhost:3002/categories/')
-        .then(res => {
-            const categories = res.data;
-            setCategories( categories );
-          }).catch(err => console.error(err))
-    }
+import { categories } from '../../redux/actions/products';
+const Categories = (props) => {  
     useEffect(()=>{
-        getCategories();
+        categories();
     },[])
     // console.log(categories)
     return (
-        <div class="categories">
-           
-        { categories.map(function(category) {
+        <div class="categories">     
+        { props.categories.map(function(category) {
                     console.log(category.Products)
                 return <div class="category"> 
                 <p>{category.name}</p>
                 </div>
             })
         }
-        </div>
-            
-       
+        </div>     
     )
-   
 }
 
-export default Categories;
+const mapStateToProps = (state) => ({categories:state.categories.product});
+export default connect(mapStateToProps)(Categories)
