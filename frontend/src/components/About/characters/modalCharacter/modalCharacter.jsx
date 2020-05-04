@@ -1,9 +1,10 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 // import './index.css';
+import {connect} from 'react-redux';
 import { Modal, Button } from 'antd';
-
+import { characters } from '../../../redux/actions/characters';import { characters } from '../../../redux/actions/characters';
 
 export const modalCharacter = () => {
     state = { visible: false };
@@ -28,26 +29,24 @@ export const modalCharacter = () => {
       });
     };
   
-
+    useEffect(()=>{
+        characters();
+    },[])
       return (
         <div>
-          <Button type="primary" onClick={showModal}>
-            Open Modal
-          </Button>
-          <Modal
-            title="Basic Modal"
-            visible={state.visible}
-            onOk={handleOk}
-            onCancel={handleCancel}
-          >
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-          </Modal>
+            {props.characters?.map(function(character) {
+            return <div key={character._id} className="character">
+              <Card hoverable cover={<img alt="example" src={character.image_path} />}>
+</Card>
+            </div>
+        })}
+      
         </div>
       );
  
 }
 
 
-ReactDOM.render(<App />, document.getElementById('container'));
+
+const mapStateToProps = (state) => ({characters:state.characters.character});
+export default connect(mapStateToProps)(modalCharacter)
