@@ -13,3 +13,23 @@
         height: 30vh;
     }
 }
+
+.ant-modal-mask {
+    background-color: rgba(255, 255, 255, 0);
+    // filter: alpha(opacity=50);
+}
+
+.modal {
+    display: flex;
+    align-items: center;
+}
+
+.ant-modal-content {
+    width: 40vw;
+    background-color: rgba(134, 134, 134, 0.103);
+}
+
+.ant-btn-primary {
+    background-color: #96969623;
+    border-color: #8b8b8b00;
+}

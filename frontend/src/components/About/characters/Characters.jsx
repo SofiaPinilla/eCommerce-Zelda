@@ -23,30 +23,29 @@ function Characters(props) {
                 title: character.name,
                 content: (
                   <div className="modal">
-                    <ReachableContext.Consumer>{name => `Description: ${character.description}!`}</ReachableContext.Consumer>
+                    <div> <img src={character.image_path} alt=""/></div>
+                   <div> <ReachableContext.Consumer>{name => `Description: ${character.description}!`}</ReachableContext.Consumer>
                     <br />
-                    <UnreachableContext.Consumer>{name => `Meta: ${character.meta}!`}</UnreachableContext.Consumer>
+                    <UnreachableContext.Consumer>{name => `Meta: ${character.meta}!`}</UnreachableContext.Consumer></div>
+                   
                   </div>
                 ),
               };
             return <div key={character._id} className="character">
               <Card hoverable cover={<img alt="example" src={character.image_path} />}>
-</Card>
-<ReachableContext.Provider value="Light">
-      <Button
-        onClick={() => {
-          modal.info(config);
-        }}
-      >
+              <ReachableContext.Provider value="Light">
+      <Button onClick={() => {modal.info(config)}}>
         More
       </Button>
 
-      {/* `contextHolder` should always under the context you want to access */}
+    
       {contextHolder}
 
-      {/* Can not access this context since `contextHolder` is not in it */}
+  
       <UnreachableContext.Provider value="Bamboo" />
     </ReachableContext.Provider>
+</Card>
+
             </div>
         })
     }
