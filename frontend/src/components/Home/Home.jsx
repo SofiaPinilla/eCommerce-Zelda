@@ -4,6 +4,7 @@ import { Card } from 'antd';
 import {connect} from 'react-redux';
 import './Home.scss'
 import { products } from '../../redux/actions/products';
+import SliderRecientes  from './SliderRecientes/SliderRecientes';
 const { Meta } = Card;
 
  const Home = (props) => {
@@ -17,9 +18,14 @@ const { Meta } = Card;
         products();
     },[])
     return (
+      <div >
+        <h1>Last products</h1>
+        <SliderRecientes/>
+      <br/>
       <div className="products">
-        { props.products.map(function(product) {
-                return <div key={product._id} className="product">
+        
+        { props.products?.map(function(product) {
+          return <div key={product._id} className="product">
                   <Card hoverable cover={<img alt="example" src={product.image_path} />}>
     <Meta title={product.name} description={product.price + '€'} />
   </Card>
@@ -28,9 +34,9 @@ const { Meta } = Card;
         }
         </div>
             
-       
+        </div> 
     )
 }
 
-const mapStateToProps = (state) => ({products:state.products.product});
+const mapStateToProps = (state) => ({products:state.product?.product});
 export default connect(mapStateToProps)(Home)

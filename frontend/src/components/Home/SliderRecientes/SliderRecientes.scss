@@ -1,0 +1,27 @@
+.ant-carousel .slick-slide {
+    display: flex;
+    text-align: center;
+    width: 40vw;
+    line-height: 20vh;
+    overflow: hidden;
+    img {
+        width: 15vw;
+    }
+}
+
+.ant-carousel .slick-slide h3 {
+    color: #fff;
+}
+
+.ant-carousel .slick-list .slick-slide.slick-active {
+    display: flex;
+    justify-content: center;
+}
+
+.slider {
+    display: flex;
+}
+
+.ant-card-bordered {
+    margin: 1em;
+}

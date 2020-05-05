@@ -5,8 +5,10 @@ import "./App.css";
 import Header from "./components/layout/Header/Header";
 import Footer from "./components/layout/Footer/Footer";
 import Home from "./components/Home/Home";
+import SliderRecientes from "./components/Home/SliderRecientes/SliderRecientes";
 import UserForm from "./components/Register/UserForm";
 import About from "./components/About/About";
+import Search from "./components/Search/Search";
 import Categories from "./components/Categories/Categories";
 import Category from "./components/Categories/Category/Category";
 import Login from "./components/Login/Login";
@@ -24,8 +26,10 @@ function App() {
       <Route path="/register" component={UserForm}/>
       <Route path="/Login" component={Login}/>
       <Route path="/about" component={About}/>
+      <Route path="/search" component={Search}/>
       <Route path="/categories" component={Categories}/>
       <Route path="/category/:categoryName" component={Category}/>
+      <Route path="/slider" component={SliderRecientes}/>
     <Footer/>
     </div>
     </main>

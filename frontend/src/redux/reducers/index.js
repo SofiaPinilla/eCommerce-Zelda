@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
 import user from "./user";
-import products from "./products";
+import product from "./products";
+import lastProduct from "./products";
+import ProductName from "./products";
 import categories from "./products";
 import category from "./products";
 import characters from "./characters";
@@ -8,9 +10,11 @@ import characters from "./characters";
 
 const reducer = combineReducers({
     user,
-    products,
+    product,
     categories,
     category,
-    characters
+    characters,
+    lastProduct,
+    ProductName,
 })
 export default reducer;

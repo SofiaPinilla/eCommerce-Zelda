@@ -12,6 +12,28 @@ export const products = async() => {
         console.error(error)
     }
 }
+export const getProductsByName = async() => {
+    try {
+        const res = await axios.get('http://localhost:3002/products/name')
+        store.dispatch({
+            type: 'PRODUCTS-NAME',
+            productsName: res.data
+        })
+    } catch (error) {
+        console.error(error)
+    }
+}
+export const lastProducts = async() => {
+    try {
+        const res = await axios.get('http://localhost:3002/products/new')
+        store.dispatch({
+            type: 'LAST-PRODUCTS',
+            lastProducts: res.data
+        })
+    } catch (error) {
+        console.error(error)
+    }
+}
 export const categories = async() => {
     try {
         const res = await axios.get('http://localhost:3002/categories/')

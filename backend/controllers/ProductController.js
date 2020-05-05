@@ -7,9 +7,25 @@ const ProductController = {
             .then(products => res.send(products))
             .catch(err => {
                 console.log(err)
-                res.status(500).send({ message: 'Ha habido un problema al cargar los productos' })
+                res.status(500).send({ message: 'There was a problem trying to load products' })
             })
 
+    },
+    getNewProducts(req, res) {
+        Product.find({})
+            .then(product => res.send(product.reverse()))
+            .catch(err => {
+                console.log(err)
+                res.status(500).send({ message: 'There was a problem trying to load products' })
+            })
+    },
+    getProductsByName(req, res) {
+        Product.find({})
+            .then(products => res.send(products.map(product => (product.name))))
+            .catch(err => {
+                console.log(err)
+                res.status(500).send({ message: 'There was a problem trying to load products' })
+            })
     },
     addProduct(req, res) {
         Product.create({...req.body })
