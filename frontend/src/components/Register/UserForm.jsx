@@ -65,16 +65,16 @@ const UserForm = (props) => {
   return (
     <div className="register">
     <Form className="form" {...formItemLayout} form={form} name="register" onFinish={onFinish}  scrollToFirstError>
-    <h1 >Registro</h1>
+    <h1 >Register</h1>
       <Form.Item name="email" label="Correo"
         rules={[
           {
             type: 'email',
-            message: 'El correo escrito no es válido',
+            message: 'The input is not valid E-mail!',
           },
           {
             required: true,
-            message: 'Por favor introduce tu correo',
+            message: 'Please input your E-mail!',
           },
         ]}
       >
@@ -84,18 +84,18 @@ const UserForm = (props) => {
       <Form.Item name="password" label="Contraseña" rules={[
           {
             required: true,
-            message: 'Por favor introduce tu contraseña',
+            message: 'Please input your password!',
           },
         ]}
         hasFeedback >
         <Input.Password />
       </Form.Item>
 
-      <Form.Item name="confirm"  label="Confirmar contraseña"  dependencies={['password']}  hasFeedback
+      <Form.Item name="confirm"  label="Confirm Password"  dependencies={['password']}  hasFeedback
         rules={[
           {
             required: true,
-            message: 'Por favor confirma tu contraseña',
+            message: 'Please confirm your password!',
           },
           ({ getFieldValue }) => ({
             validator(rule, value) {
@@ -103,7 +103,7 @@ const UserForm = (props) => {
                 return Promise.resolve();
               }
 
-              return Promise.reject('Las contraseñas no coinciden');
+              return Promise.reject('The two passwords that you entered do not match!');
             },
           }),
         ]}
@@ -114,7 +114,7 @@ const UserForm = (props) => {
       <Form.Item name="nombre"
         label={
           <span>
-            Nombre&nbsp;
+            Name&nbsp;
             <Tooltip title="What do you want others to call you?">
             </Tooltip>
           </span>
@@ -122,7 +122,7 @@ const UserForm = (props) => {
         rules={[
           {
             required: true,
-            message: 'Por favor introduzca su nombre!',
+            message: 'Please input your name!',
             whitespace: true,
           },
         ]}
@@ -133,7 +133,7 @@ const UserForm = (props) => {
       <Form.Item name="apellidos"
         label={
           <span>
-            Apellidos&nbsp;
+            Surname&nbsp;
             <Tooltip title="What do you want others to call you?">
             </Tooltip>
           </span>
@@ -141,7 +141,7 @@ const UserForm = (props) => {
         rules={[
           {
             required: true,
-            message: 'Por favor introduce tus apellidos!',
+            message: 'Please input your surname',
             whitespace: true,
           },
         ]}
@@ -158,7 +158,7 @@ const UserForm = (props) => {
         rules={[
           {
             required: true,
-            message: 'Por favor introduce tu DNI',
+            message: 'Please input your DNI',
             whitespace: true,
           },
         ]}

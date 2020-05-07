@@ -23,4 +23,34 @@ export const register = async(user) => {
     } catch (error) {
         console.error(error)
     }
+
+}
+export const getUserInfo = async() => {
+    try {
+        const res = await axios.get('http://localhost:3002/users/info', {
+            headers: {
+                authorization: localStorage.getItem('authToken')
+            }
+        })
+        store.dispatch({
+            type: 'GET_INFO',
+            user: res.data
+        })
+        return res;
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export const logout = async() => {
+    const res = await axios.get('http://localhost:3002/users/logout', {
+        headers: {
+            authorization: localStorage.getItem('authToken')
+        }
+    })
+    localStorage.removeItem('authToken');
+    store.dispatch({
+        type: 'LOGOUT'
+    })
+    return res;
 }

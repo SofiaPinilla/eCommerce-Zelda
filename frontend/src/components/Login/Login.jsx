@@ -11,14 +11,14 @@ export default function Login(props) {
     const onFinish = user => {
       login(user)
     .then(res => {
-        notification.success({ message: 'Conectad@ con éxito', description: 'Bienvenid@'})
+        notification.success({ message: 'Connected successfully', description: 'Welcome'})
     // localStorage.setItem('authToken',res.data.token)
     setTimeout(() => {
         props.history.push('/')
     }, 2000);
 })      
 .catch(err =>{
-    notification.error({ message: 'Conexión fallida', description: 'Nombre o contraseña incorrectos'})
+    notification.error({ message: 'Failed connection', description: 'Incorrect User or Password'})
     setTimeout(() => {
         props.history.push('/login');
         console.error(err)})
@@ -37,14 +37,14 @@ export default function Login(props) {
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
         >
-             <h1 >Iniciar Sesión</h1>
+             <h1 >Login</h1>
           <Form.Item
             label="Username"
             name="nombre"
             rules={[
               {
                 required: true,
-                message: 'Please input your nombre!',
+                message: 'Please input your name',
               },
             ]}
           >

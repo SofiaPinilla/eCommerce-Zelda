@@ -8,12 +8,6 @@ import SliderRecientes  from './SliderRecientes/SliderRecientes';
 const { Meta } = Card;
 
  const Home = (props) => {
-//   products()
-//         .then(res => {
-//             const products = res.data;
-//             setProducts( products );
-//           }).catch(err => console.error(err))
-//     }
     useEffect(()=>{
         products();
     },[])

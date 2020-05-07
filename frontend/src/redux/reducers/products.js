@@ -10,10 +10,10 @@ const product = (state = {}, action) => {
                 ...state,
                 lastProduct: action.lastProducts
             }
-        case 'PRODUCTS-NAME':
+        case 'PRODUCT':
             return {
                 ...state,
-                productsName: action.productsName
+                productByName: action.productByName
             }
         case 'CATEGORIES':
             return {

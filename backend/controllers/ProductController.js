@@ -20,8 +20,15 @@ const ProductController = {
             })
     },
     getProductsByName(req, res) {
-        Product.find({})
-            .then(products => res.send(products.map(product => (product.name))))
+        // Product.find({ name: /.*req.params.name.*/i })
+        const name = new RegExp(`${req.params.name}`, 'i')
+        console.log(name)
+        Product.aggregate([{
+                $match: {
+                    name
+                }
+            }, ])
+            .then(products => res.send(products))
             .catch(err => {
                 console.log(err)
                 res.status(500).send({ message: 'There was a problem trying to load products' })

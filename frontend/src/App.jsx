@@ -14,6 +14,7 @@ import Category from "./components/Categories/Category/Category";
 import Login from "./components/Login/Login";
 import Favicon from 'react-favicon';
 import zelda from './logoZelda.png'
+import  Profile  from "./components/Profile/Profile";
 function App() {
   return (
       <Router><main>
@@ -26,10 +27,11 @@ function App() {
       <Route path="/register" component={UserForm}/>
       <Route path="/Login" component={Login}/>
       <Route path="/about" component={About}/>
-      <Route path="/search" component={Search}/>
+      <Route path="/search/:productName" component={Search}/>
       <Route path="/categories" component={Categories}/>
       <Route path="/category/:categoryName" component={Category}/>
       <Route path="/slider" component={SliderRecientes}/>
+      <Route path="/profile" component={Profile}/>
     <Footer/>
     </div>
     </main>

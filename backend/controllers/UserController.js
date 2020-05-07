@@ -50,7 +50,19 @@ const UserController = {
             console.error(error);
         }
     },
-
+    getInfo(req, res) {
+        res.send(req.user);
+    },
+    logout(req, res) {
+        User.findByIdAndUpdate(req.user._id, { $pull: { tokens: req.headers.authorization } })
+            .then(() => res.send({ message: 'Desconectado con éxito' }))
+            .catch(error => {
+                console.error(error)
+                res.status(500).send({
+                    message: 'Hubo un problema al intentar conectar al usuario'
+                })
+            })
+    }
 
 }
 

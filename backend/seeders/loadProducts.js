@@ -12,13 +12,15 @@ axios.get('http://localhost:3001/products')
         try {
             const products = res.data
             for (const product of products) {
-                if (product.Category.id === 3) {
+                if (product.Category.id === 1) {
                     const productCreated = await Product.create({
                         ...product,
-                        CategoryId: '5eade2fc77310d35442d86cc',
+                        description: 'Console of the special edition of The Legend of Zelda',
+                        stock: 10,
+                        CategoryId: '5ead8df3174cc9ac477107dc',
                     })
                     console.log(productCreated._id)
-                    const cat = await Category.findByIdAndUpdate('5eade2fc77310d35442d86cc', { $push: { ProductId: productCreated._id } });
+                    const cat = await Category.findByIdAndUpdate('5ead8df3174cc9ac477107dc', { $push: { ProductId: productCreated._id } });
                     console.log(cat)
                 }
             }
