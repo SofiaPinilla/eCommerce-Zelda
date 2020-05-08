@@ -46,11 +46,12 @@ function Header(props) {
         {/* tipico if de angular */}
         {props.user?.user?
             <div className="userZone">
+              <UserOutlined />
                 <Link to='/profile' >{props.user.user.nombre}</Link>
                 {console.log(props.user)}
                 <Link to='login'onClick={logout}>Logout</Link>
             </div> : <div className="guestZone">
-              
+            <UserOutlined />
             <Link to='/login' >Login</Link>
             <Link to='/register' >Register</Link>
 

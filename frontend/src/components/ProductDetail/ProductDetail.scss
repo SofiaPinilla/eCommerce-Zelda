@@ -1,0 +1,26 @@
+// .product {
+//     padding: 0.5em;
+//     .detail {
+//         display: flex;
+//         flex-direction: column;
+//     }
+//     img {
+//         max-width: 50vw;
+//     }
+// }
+.product2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0.3em;
+    width: 100%;
+    img {
+        width: 70%;
+        height: 30vh;
+    }
+}
+
+.ant-card-cover {
+    display: flex;
+    justify-content: center;
+}

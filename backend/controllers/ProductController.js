@@ -41,7 +41,16 @@ const ProductController = {
                 console.log(err)
                 res.status(500).send({ message: 'Ha habido un problema al cargar los productos' })
             })
-    }
+    },
+    getById(req, res) {
+        Product.findById(req.params._id)
+            .populate('userId')
+            .then(product => res.send(product))
+            .catch(error => {
+                console.error(error);
+                res.send(error)
+            })
+    },
 }
 
 module.exports = ProductController;

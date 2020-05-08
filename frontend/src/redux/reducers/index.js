@@ -14,7 +14,6 @@ const reducer = combineReducers({
     categories,
     category,
     characters,
-    lastProduct,
-    productByName
+    lastProduct
 })
 export default reducer;

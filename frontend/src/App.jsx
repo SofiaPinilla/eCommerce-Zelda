@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import "./App.css";
 import Header from "./components/layout/Header/Header";
@@ -15,6 +15,8 @@ import Login from "./components/Login/Login";
 import Favicon from 'react-favicon';
 import zelda from './logoZelda.png'
 import  Profile  from "./components/Profile/Profile";
+import  NotFound  from "./components/NotFound/NotFound";
+import ProductDetailFuncional from "./components/ProductDetail/ProductDetailFuncional";
 function App() {
   return (
       <Router><main>
@@ -23,6 +25,7 @@ function App() {
       <header className="App-header">
         <Header/>
       </header>{" "}
+      <Switch>
       <Route exact path="/" component={Home}/>
       <Route path="/register" component={UserForm}/>
       <Route path="/Login" component={Login}/>
@@ -32,6 +35,9 @@ function App() {
       <Route path="/category/:categoryName" component={Category}/>
       <Route path="/slider" component={SliderRecientes}/>
       <Route path="/profile" component={Profile}/>
+      <Route path="/product/:_id" component={ProductDetailFuncional} exact/>
+      <Route exact path='/**'  component={NotFound}/>
+      </Switch>
     <Footer/>
     </div>
     </main>

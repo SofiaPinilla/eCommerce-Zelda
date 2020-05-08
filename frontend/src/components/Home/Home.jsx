@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import './Home.scss'
 import { products } from '../../redux/actions/products';
 import SliderRecientes  from './SliderRecientes/SliderRecientes';
+import { Link } from 'react-router-dom'
 const { Meta } = Card;
 
  const Home = (props) => {
@@ -20,9 +21,10 @@ const { Meta } = Card;
         
         { props.products?.map(function(product) {
           return <div key={product._id} className="product">
+            <Link className="product" key={product._id} to={'/product/'+product._id}>
                   <Card hoverable cover={<img alt="example" src={product.image_path} />}>
     <Meta title={product.name} description={product.price + '€'} />
-  </Card>
+  </Card></Link>
                 </div>
             })
         }
