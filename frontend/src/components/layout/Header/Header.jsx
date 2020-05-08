@@ -33,7 +33,7 @@ function Header(props) {
           <SubMenu
           title={
             <>
-              Categorias
+              Categories
             </>
           }
         >
@@ -46,17 +46,14 @@ function Header(props) {
         {/* tipico if de angular */}
         {props.user?.user?
             <div className="userZone">
-                <Link to='/profile' activeClassName="isActive" exact>{props.user.user.nombre}</Link>
-                <span onClick={logout}>Logout</span>
+                <Link to='/profile' >{props.user.user.nombre}</Link>
+                {console.log(props.user)}
+                <Link to='login'onClick={logout}>Logout</Link>
             </div> : <div className="guestZone">
-            <SubMenu title={<><UserOutlined />User</>}>
-          <Menu.ItemGroup title="">
+              
+            <Link to='/login' >Login</Link>
+            <Link to='/register' >Register</Link>
 
-         <Menu.Item key="setting:4"><Link to="/login">Login</Link> </Menu.Item>
-        <Menu.Item key="setting:5"><Link to="/register">Register</Link></Menu.Item>
-          </Menu.ItemGroup>
-         
-        </SubMenu>
             </div>}
        
       </Menu>
