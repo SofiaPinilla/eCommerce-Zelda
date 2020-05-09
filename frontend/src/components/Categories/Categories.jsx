@@ -11,7 +11,8 @@ const Categories = (props) => {
     },[])
     // console.log(categories)
     return (
-        <div class="categories">     
+        <div class="categories">   
+            
         { props.categories.map(function(category) {
                     console.log(category.Products)
                 return <div class="category"> 

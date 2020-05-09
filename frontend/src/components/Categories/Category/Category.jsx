@@ -13,6 +13,7 @@ export const Category = (props) => {
     }, [categoryName])
     return (
         <div className="categories">
+                <img className="separador" src="https://zelda.com/assets/img/home/hyrule_rule.png" alt=""/>  
             {props.categories?.map((category) => (<div key={category._id} className="category">
                 <Card
                     hoverable
