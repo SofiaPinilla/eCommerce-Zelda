@@ -70,7 +70,6 @@ const SliderRecientes = (props) => {
         </div>
       </div>
     </Carousel>
-
   )
 }
 const mapStateToProps = (state) => ({ products: state.lastProduct?.lastProduct });

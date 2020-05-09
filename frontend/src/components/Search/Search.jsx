@@ -33,5 +33,5 @@ const Search = (props)=>{
 
     )
 }
-const mapStateToProps = (state) => ({products:state.productByName.productByName});
+const mapStateToProps = (state) => ({products:state.product.productByName});
 export default connect(mapStateToProps)(Search)

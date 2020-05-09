@@ -2,11 +2,13 @@ import React from "react";
 import {Link, useHistory} from 'react-router-dom'
 import './Header.scss'
 import 'antd/dist/antd.css';
-import zelda from './zelda.png'
+import logo from './shop.png'
 import { Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { logout } from '../../../redux/actions/user';
+import { Input } from 'antd';
+const { Search } = Input;
 const { SubMenu } = Menu;
 
 function Header(props) {
@@ -20,16 +22,12 @@ function Header(props) {
   }
     return (
       <div className="header">
-      <img src={zelda} alt=""/>
+
         <Menu  mode="horizontal">
+        <Menu.Item>    <Link to="/"><img src={logo} alt=""/></Link>  </Menu.Item>
           <Menu.Item><Link to="/">Home</Link></Menu.Item>
-     
-         
-
-        <div>
-          <Menu.Item><input className="buscador" onKeyUp={handleChange} /></Menu.Item>
-
-        </div>
+          <Menu.Item><Link to="/products">Products</Link></Menu.Item>
+        
           <SubMenu
           title={
             <>
@@ -42,7 +40,10 @@ function Header(props) {
         <Menu.Item key="setting:3"><Link to="/category/Amiibos">Amiibos</Link></Menu.Item>
         </SubMenu>
         <Menu.Item><Link to="/about">About</Link></Menu.Item>
-
+        <Menu.Item><Search onKeyUp={handleChange} placeholder="input search text"
+      onSearch={value => console.log(value)}
+      style={{ width: 200 }}
+    /></Menu.Item>
         {/* tipico if de angular */}
         {props.user?.user?
             <div className="userZone">

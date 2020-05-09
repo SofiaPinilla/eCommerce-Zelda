@@ -1,0 +1,21 @@
+.search3 {
+    // margin-top: 20em;
+    // padding: 3em;
+    // height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    // background-image: url(videojuegos.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    img {
+        width: 70vw;
+    }
+}
+
+.busca {
+    padding: 1em;
+    border-radius: 1em;
+    width: 40vw;
+}

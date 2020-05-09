@@ -17,6 +17,7 @@ import zelda from './logoZelda.png'
 import  Profile  from "./components/Profile/Profile";
 import  NotFound  from "./components/NotFound/NotFound";
 import ProductDetailFuncional from "./components/ProductDetail/ProductDetailFuncional";
+import Products from "./components/Products/Products";
 function App() {
   return (
       <Router><main>
@@ -36,6 +37,7 @@ function App() {
       <Route path="/slider" component={SliderRecientes}/>
       <Route path="/profile" component={Profile}/>
       <Route path="/product/:_id" component={ProductDetailFuncional} exact/>
+      <Route path="/products" component={Products} exact/>
       <Route exact path='/**'  component={NotFound}/>
       </Switch>
     <Footer/>

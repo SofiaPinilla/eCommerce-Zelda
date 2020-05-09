@@ -1,0 +1,22 @@
+.search4 {
+    height: 60vh;
+    // width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background-image: url(https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2016/12/legend-zelda-breath-wild-nintendo-switch.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    h1 {
+        color: #4D3B1A;
+        // background-color: rgba(77, 59, 26, 0.301);
+    }
+}
+
+.busca {
+    padding: 1em;
+    border-radius: 1em;
+    width: 40vw;
+}

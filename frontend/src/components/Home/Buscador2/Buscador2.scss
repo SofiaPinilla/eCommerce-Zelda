@@ -1,0 +1,17 @@
+.search {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    h1 {
+        color: rgb(255, 255, 255);
+    }
+}
+
+.busca {
+    padding: 1em;
+    border-radius: 1em;
+    width: 40vw;
+}
