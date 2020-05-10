@@ -33,7 +33,7 @@ app.use('/users', require('./routes/users.js'));
 app.use('/products', require('./routes/products.js'));
 app.use('/categories', require('./routes/categories.js'));
 app.use('/characters', require('./routes/characters.js'));
-
+app.use('/orders', require('./routes/orders'));
 
 
 const PORT = process.env.PORT || 3002;

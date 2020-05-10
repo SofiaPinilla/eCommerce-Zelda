@@ -6,7 +6,7 @@ const CategoryController = {
             .populate('ProductId')
             .then(categories => res.send(categories))
             .catch(err => {
-                console.log(err)
+                console.error(err)
                 res.status(500).send({ message: 'Ha habido un problema al cargar los productos' })
             })
     },

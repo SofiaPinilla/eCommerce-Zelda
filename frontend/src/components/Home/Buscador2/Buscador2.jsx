@@ -17,7 +17,7 @@ const Buscador2 = () => {
         <div className="search">
              <h1>Search here your product!</h1>
          <Search  onKeyUp={handleChange} className="busca"
-      placeholder="input search text"
+      placeholder="search product"
       enterButton="Search"
       size="large"
       onSearch={value => console.log(value)}

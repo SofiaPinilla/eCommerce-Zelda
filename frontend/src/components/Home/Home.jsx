@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react'
 import 'antd/dist/antd.css';
-import { Card,Button } from 'antd';
+import { Button } from 'antd';
 import {connect} from 'react-redux';
 import './Home.scss'
 import { products } from '../../redux/actions/products';
@@ -11,8 +11,6 @@ import Buscador2 from './Buscador2/Buscador2';
 import Amiibos from './Amiibos/Amiibos';
 import Videojuegos from './Videojuegos/Videojuegos';
 import Consolas from './Consolas/Consolas';
-const { Meta } = Card;
-
  const Home = (props) => {
     useEffect(()=>{
         products();

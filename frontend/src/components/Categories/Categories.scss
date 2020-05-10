@@ -2,13 +2,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 0.3em;
+    padding: 1em;
+    margin: 1em;
 }
 
 .category {
-    margin: 0.3em;
+    margin: 1em;
     width: 20vw;
     img {
+        padding: 1em;
         width: 70%;
         height: 30vh;
     }

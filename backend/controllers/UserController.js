@@ -6,6 +6,13 @@ const { jwt_secret } = require('../config/keys.js');
 
 
 const UserController = {
+    getInfo(req, res) {
+        User.findById(req.user._id)
+            .populate('favoritos')
+            // .populate('stars.user')
+            .then(user => res.send(user), )
+            .catch(console.error);
+    },
     async register(req, res) {
         try {
             const email = req.body.email;
@@ -50,9 +57,9 @@ const UserController = {
             console.error(error);
         }
     },
-    getInfo(req, res) {
-        res.send(req.user);
-    },
+    // getInfo(req, res) {
+    //     res.send(req.user);
+    // },
     logout(req, res) {
         User.findByIdAndUpdate(req.user._id, { $pull: { tokens: req.headers.authorization } })
             .then(() => res.send({ message: 'Desconectado con éxito' }))

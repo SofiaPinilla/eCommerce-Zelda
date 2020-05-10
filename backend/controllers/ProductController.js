@@ -1,4 +1,6 @@
 const Product = require('../models/Product.js');
+const User = require('../models/User.js');
+
 const Category = require('../models/Category.js');
 const ProductController = {
     getAll(req, res) {
@@ -50,6 +52,29 @@ const ProductController = {
                 console.error(error);
                 res.send(error)
             })
+    },
+    async like(req, res) {
+        try {
+            // if (product.likes.includes()) {}
+            const product =
+                await Product.findByIdAndUpdate(req.params._id, { $push: { favoritos: req.user._id } }, { new: true });
+            const user = await User.findByIdAndUpdate(req.user._id, { $push: { favoritos: req.params._id } }, { new: true });
+
+            res.send(product);
+        } catch (error) {
+            console.error(error);
+            res.status(500).send({ message: 'There was a problem with your like' })
+        }
+    },
+    async disLike(req, res) {
+        try {
+            const product = await Product.findByIdAndUpdate(req.params._id, { $pull: { favoritos: req.user._id } }, { new: true });
+            const user = await User.findByIdAndUpdate(req.user._id, { $pull: { favoritos: req.params._id } }, { new: true });
+            res.send(product);
+        } catch (error) {
+            console.error(error);
+            res.status(500).send({ message: 'There was a problem with your like' })
+        }
     },
 }
 

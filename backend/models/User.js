@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const ObjectID = require('mongodb').ObjectID
+// const ObjectID = require('mongodb').ObjectID
+const ObjectId = mongoose.SchemaTypes.ObjectId;
 
 
 const UserSchema = new mongoose.Schema({
@@ -27,8 +28,8 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-
-
+    orderIds: [{ type: ObjectId, ref: 'Order' }],
+    favoritos: [{ type: ObjectId, ref: 'Product' }],
     role: String,
 
     tokens: [],

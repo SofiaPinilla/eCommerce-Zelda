@@ -9,12 +9,11 @@ const Categories = (props) => {
     useEffect(()=>{
         categories();
     },[])
-    // console.log(categories)
+
     return (
         <div class="categories">   
             
         { props.categories.map(function(category) {
-                    console.log(category.Products)
                 return <div class="category"> 
                 <p>{category.name}</p>
                 </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import './Consolas.scss'
-import { Button } from 'antd';
+// import { Button } from 'antd';
 const Consolas = () => {
     return (
         <Link to="/category/consolas"><div className="search4" >

@@ -11,7 +11,6 @@ const SliderRecientes = (props) => {
     lastProducts();
   }, [])
 
-  console.log(props)
   if(!props.products) return 'cargando'
   return (
 

@@ -19,7 +19,7 @@ const ProductSchema = new mongoose.Schema({
         type: String,
         required: [true, 'El campo ruta de imagen es requerido']
     },
-    favoritos: [],
+    favoritos: [ObjectId],
     stock: {
         type: Number,
         required: [true, 'El campo stock es requerido']

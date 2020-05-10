@@ -16,14 +16,14 @@ export const modalCharacter = () => {
     };
 
     handleOk = e => {
-      console.log(e);
+    
       setState({
         visible: false,
       });
     };
   
     handleCancel = e => {
-      console.log(e);
+    
       setState({
         visible: false,
       });

@@ -57,3 +57,33 @@ export const productByName = async(productName) => {
         console.error(error)
     }
 }
+export const like = async(_id) => {
+    try {
+        await axios.get('http://localhost:3002/products/likes/' + _id, {
+            headers: {
+                Authorization: localStorage.getItem('authToken')
+            }
+        });
+        store.dispatch({
+            type: 'LIKE',
+        })
+        products();
+    } catch (error) {
+        console.error(error)
+    }
+}
+export const unLike = async(_id) => {
+    try {
+        await axios.get('http://localhost:3002/products/disLikes/' + _id, {
+            headers: {
+                Authorization: localStorage.getItem('authToken')
+            }
+        });
+        store.dispatch({
+            type: 'UNLIKE',
+        })
+        products();
+    } catch (error) {
+        console.error(error)
+    }
+}

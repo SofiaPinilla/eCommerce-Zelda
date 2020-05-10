@@ -1,5 +1,27 @@
 .site-card-border-less-wrapper {
     display: flex;
     justify-content: center;
-    height: 51.7vh;
+    height: 81.5vh;
+}
+
+// .datos {
+//     // margin: 2em;
+//     // padding: 2em;
+// }
+.favoritos {
+    margin: 2em;
+    padding: 2em;
+    display: flex;
+    img {
+        width: 20%;
+    }
+    span {
+        color: black;
+        font-size: 1em;
+    }
+    background-color: #f0f0f0;
+    transition: 1s;
+    &:hover {
+        background-color: #d6d6d6;
+    }
 }

@@ -40,8 +40,8 @@ function Header(props) {
         <Menu.Item key="setting:3"><Link to="/category/Amiibos">Amiibos</Link></Menu.Item>
         </SubMenu>
         <Menu.Item><Link to="/about">About</Link></Menu.Item>
-        <Menu.Item><Search onKeyUp={handleChange} placeholder="input search text"
-      onSearch={value => console.log(value)}
+        <Menu.Item><Search onKeyUp={handleChange} placeholder="search product"
+      onSearch={value => value}
       style={{ width: 200 }}
     /></Menu.Item>
         {/* tipico if de angular */}
@@ -49,7 +49,6 @@ function Header(props) {
             <div className="userZone">
               <UserOutlined />
                 <Link to='/profile' >{props.user.user.nombre}</Link>
-                {console.log(props.user)}
                 <Link to='login'onClick={logout}>Logout</Link>
             </div> : <div className="guestZone">
             <UserOutlined />

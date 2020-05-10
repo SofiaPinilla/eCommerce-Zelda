@@ -47,7 +47,6 @@ const UserForm = (props) => {
   const [form] = Form.useForm();
 
   const onFinish = (user) => {
-      console.log(user)
     if (user.password !== user.confirm) {
         return notification.error({ message: 'Error', description: 'Las contraseñas no coinciden' })
     }
