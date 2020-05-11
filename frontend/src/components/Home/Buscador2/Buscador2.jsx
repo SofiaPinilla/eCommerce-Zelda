@@ -2,7 +2,6 @@ import React from 'react'
 import './Buscador2.scss'
 import { Input } from 'antd';
 import {useHistory} from 'react-router-dom'
-
 const { Search } = Input;
 const Buscador2 = () => {
     const history = useHistory();//el history del BOM dopado

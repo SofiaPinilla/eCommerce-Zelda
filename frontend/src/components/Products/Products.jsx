@@ -9,7 +9,7 @@ const { Meta } = Card;
 const Products = (props) => {
     useEffect(()=>{
         products();
-    },[])
+    },[props.products])
     return (
         <div>
              <h1 className="title">All products</h1>

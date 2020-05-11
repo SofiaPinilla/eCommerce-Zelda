@@ -13,6 +13,17 @@ export const products = async() => {
     }
 }
 
+export const getProductDetail = async(_id) => {
+    try {
+        const res = await axios.get('http://localhost:3002/products/' + _id) //hacemos la petición para obtener ese producto en detalle
+        store.dispatch({
+            type: 'GET_PRODUCT_DETAIL',
+            payload: res.data
+        })
+    } catch (error) {
+        console.error(error)
+    }
+}
 export const lastProducts = async() => {
     try {
         const res = await axios.get('http://localhost:3002/products/new')
@@ -57,33 +68,45 @@ export const productByName = async(productName) => {
         console.error(error)
     }
 }
-export const like = async(_id) => {
+export const like = async(_id, product) => {
     try {
-        await axios.get('http://localhost:3002/products/likes/' + _id, {
+        await axios.put('http://localhost:3002/products/likes/' + _id, product, {
             headers: {
-                Authorization: localStorage.getItem('authToken')
+                authorization: localStorage.getItem('authToken')
             }
         });
         store.dispatch({
             type: 'LIKE',
         })
         products();
+        getProductDetail(_id);
     } catch (error) {
         console.error(error)
     }
 }
-export const unLike = async(_id) => {
+export const unLike = async(_id, product) => {
     try {
-        await axios.get('http://localhost:3002/products/disLikes/' + _id, {
+        await axios.put('http://localhost:3002/products/disLikes/' + _id, product, {
             headers: {
-                Authorization: localStorage.getItem('authToken')
+                authorization: localStorage.getItem('authToken')
             }
         });
         store.dispatch({
             type: 'UNLIKE',
         })
         products();
+        getProductDetail(_id);
     } catch (error) {
         console.error(error)
+    }
+}
+export const addCart = ({ _id }) => {
+    const { product } = store.getState();
+    // console.log(product)
+    if (!product.cart.includes(_id)) {
+        store.dispatch({
+            type: 'ADD_CART',
+            payload: _id
+        })
     }
 }

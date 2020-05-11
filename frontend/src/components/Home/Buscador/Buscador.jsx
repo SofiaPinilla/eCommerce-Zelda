@@ -1,5 +1,5 @@
 import React from 'react'
-import link from './buscazelda.png'
+import link from './zelda.png'
 import './Buscador.scss'
 const Buscador = () => {
     return (

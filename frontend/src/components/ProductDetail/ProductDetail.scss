@@ -14,10 +14,14 @@
     // flex-wrap: wrap;
     justify-content: center;
     margin: 0.3em;
-    width: 100%;
+    // width: 100%;
     img {
         margin: 5em;
         // width: 100%;
         height: 30vh;
     }
+    .anticon svg {
+        color: red;
+    }
+    height: 80vh;
 }

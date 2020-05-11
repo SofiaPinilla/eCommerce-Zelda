@@ -1,9 +1,14 @@
-const product = (state = {}, action) => {
+const product = (state = { cart: [] }, action) => {
     switch (action.type) {
         case 'PRODUCTS':
             return {
                 ...state,
                 product: action.products
+            }
+        case 'ADD_CART':
+            return {
+                ...state,
+                cart: [...state.cart, action.payload]
             }
         case 'LAST-PRODUCTS':
             return {
@@ -14,6 +19,11 @@ const product = (state = {}, action) => {
             return {
                 ...state,
                 productByName: action.productByName
+            }
+        case 'GET_PRODUCT_DETAIL':
+            return {
+                ...state,
+                productDetail: action.payload
             }
         case 'CATEGORIES':
             return {
