@@ -3,12 +3,17 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { jwt_secret } = require('../config/keys.js');
 
-
-
 const UserController = {
     getInfo(req, res) {
         User.findById(req.user._id)
             .populate('favoritos')
+            .populate('orderIds')
+            .populate({
+                path: 'orderIds',
+                populate: {
+                    path: 'productId'
+                }
+            })
             // .populate('stars.user')
             .then(user => res.send(user), )
             .catch(console.error);

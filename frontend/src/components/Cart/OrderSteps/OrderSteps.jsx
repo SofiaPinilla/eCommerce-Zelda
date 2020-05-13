@@ -1,35 +1,41 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import './OrderSteps.scss';
-import { Steps, Button, message } from 'antd';
+import { Steps, Button} from 'antd';
+import { Link } from 'react-router-dom'
+
 import Cart from '../Cart';
 import OrderDetail  from '../OrderDetail/OrderDetail';
+import CompleteOrder  from '../CompleteOrder/CompleteOrder';
+import { ShoppingCartOutlined,SolutionOutlined  } from '@ant-design/icons';
+import { order } from '../../../redux/actions/orders';
+import { connect } from 'react-redux';
 
 const { Step } = Steps;
 
 const steps = [
   {
-    title: 'First',
+    title: <ShoppingCartOutlined className="carro"/>,
     content: <Cart/>,
   },
   {
-    title: 'Second',
+    title: <SolutionOutlined className="carro"/>,
     content:   <OrderDetail/>,
   },
   {
-    title: 'Last',
-    content: 'Last-content',
+    title: 'Done',
+    content: <CompleteOrder/>,
   },
 ];
 
-export default class OrderSteps extends React.Component {
+class OrderSteps extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      current: 0,
+      current: 0
     };
+    
   }
-
   next() {
     const current = this.state.current + 1;
     this.setState({ current });
@@ -42,6 +48,7 @@ export default class OrderSteps extends React.Component {
 
   render() {
     const { current } = this.state;
+    const orderita = this.props.products?.map(p => p._id)
     return (
       <div>
      
@@ -54,13 +61,15 @@ export default class OrderSteps extends React.Component {
         <div className="steps-action">
           {current < steps.length - 1 && (
             <Button type="primary" onClick={() => this.next()}>
-              Next
+              Buy
             </Button>
           )}
-          {current === steps.length - 1 && (
-            <Button type="primary" onClick={() => message.success('Processing complete!')}>
-              Done
-            </Button>
+          {current === steps.length -1 && (
+            <Link to='/' > <Button type="primary" onClick={() =>  order(orderita)}>
+            Buy more products
+            {console.log(orderita)}
+          </Button></Link>
+           
           )}
           {current > 0 && (
             <Button style={{ margin: '0 8px' }} onClick={() => this.prev()}>
@@ -73,3 +82,5 @@ export default class OrderSteps extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => ({ products: state.product?.cart });
+export default connect(mapStateToProps)(OrderSteps)

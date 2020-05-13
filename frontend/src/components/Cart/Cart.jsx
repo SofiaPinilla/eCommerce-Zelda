@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { order } from '../../redux/actions/orders';
+// import { order } from '../../redux/actions/orders';
 
 import './Cart.scss'
 const Cart = (props) => {
@@ -19,7 +19,7 @@ const Cart = (props) => {
                 </div>
             })
             }
-            <button onClick={() => order(props.products.map(p => p._id))}>Terminar pedido</button>
+            {/* <button onClick={() => order(props.products.map(p => p._id))}>Terminar pedido</button> */}
         </div>
     )
 }

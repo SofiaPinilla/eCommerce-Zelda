@@ -5,10 +5,19 @@
     background-color: #fafafa;
     min-height: 200px;
     text-align: center;
-    padding-top: 80px;
+}
+
+.carro {
+    svg {
+        font-size: 2em;
+    }
 }
 
 .steps-action {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    margin: 1em;
     margin-top: 24px;
 }
 

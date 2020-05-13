@@ -4,6 +4,7 @@ import { Card } from 'antd';
 import {connect} from 'react-redux';
 import { category } from '../../../redux/actions/products';
 import './Category.scss'
+import { Link } from 'react-router-dom';
 const { Meta } = Card;
 
 export const Category = (props) => {
@@ -15,12 +16,14 @@ export const Category = (props) => {
         <div className="categories">
                 <img className="separador" src="https://zelda.com/assets/img/home/hyrule_rule.png" alt=""/>  
             {props.categories?.map((category) => (<div key={category._id} className="category">
-                <Card
+            <Link className="product" to={'/product/'+category._id}>
+            <Card
                     hoverable
                     cover={<img alt="example" src={category.image_path} />}
                 >
                     <Meta title={category.name} description={category.price + '€'} />
-                </Card>
+                </Card></Link>
+                
 
             </div>))
             }

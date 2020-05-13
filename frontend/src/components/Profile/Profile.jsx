@@ -5,13 +5,22 @@ import './Profile.scss'
 import { getUserInfo } from '../../redux/actions/user';
 import { Card } from 'antd';
 import { Link } from 'react-router-dom'
+import 'antd/dist/antd.css';
+import { Collapse } from 'antd';
+
+const { Panel } = Collapse;
+
+function callback(key) {
+  console.log(key);
+}
+
 const Profile = ({user}) => {
     useEffect(()=>{
         getUserInfo();
     },[])
     return (
 <div className="site-card-border-less-wrapper">
-    <div className="datos">
+    <div >
 
     <h1>Datos</h1>
     <Card title={user?.nombre} bordered={false} style={{ width: 300 }}>
@@ -31,6 +40,20 @@ const Profile = ({user}) => {
 </div></Link>
             )}
 )}
+    </div>
+    <div>
+        <h1>My orders</h1>
+    {user?.orderIds?.map(order=> {return(
+<div className="pedidos">
+<Collapse defaultActiveKey={['1']} onChange={callback}>
+    <Panel header={order.status} key="2">
+      <p>Product: {order.productId?.map(product => product.name)} {order.productId?.map(product => product.price)} €</p>
+    <p>    Total price: {order.productId?.reduce((prev, cur) => prev + cur.price,0)?.toFixed(2)}€</p>
+    </Panel>
+  </Collapse>
+    
+</div>
+    )})}     
     </div>
   </div>
     )

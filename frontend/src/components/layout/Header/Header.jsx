@@ -53,7 +53,7 @@ function Header(props) {
             <Link to='/profile' >{props.user.user.nombre}</Link>
             <Link to='login' onClick={logout}>Logout</Link>
             <Badge className="carrito" count={props.cart?.length}>
-            <Link to='/cart' ><ShoppingCartOutlined  /></Link> 
+            <Link to='/steps' ><ShoppingCartOutlined  /></Link> 
             </Badge>
           </div> : <div className="guestZone">
             <UserOutlined />

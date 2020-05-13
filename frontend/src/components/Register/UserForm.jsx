@@ -4,6 +4,7 @@ import 'antd/dist/antd.css';
 import { notification } from 'antd';
 import {Form,Input,Tooltip,Button} from 'antd';
 import { register } from '../../redux/actions/user';
+import { Link } from 'react-router-dom';
 
 // const AutoCompleteOption = AutoComplete.Option;
 
@@ -48,12 +49,12 @@ const UserForm = (props) => {
 
   const onFinish = (user) => {
     if (user.password !== user.confirm) {
-        return notification.error({ message: 'Error', description: 'Las contraseñas no coinciden' })
+        return notification.error({ message: 'Error', description: 'Passwords do not match' })
     }
    
     register(user)
         .then(res => {
-            notification.success({ message: 'Bienvenid@ ', description: 'Ya estas registrado '})
+            notification.success({ message: 'Welcome ', description: 'Succesfully registered'})
             setTimeout(() => props.history.push('/login') , 2000);
         })
         .catch(err => console.error(err))
@@ -171,6 +172,7 @@ const UserForm = (props) => {
           Register
         </Button>
       </Form.Item>
+      <span className="redirección">Already an account?  <Link to='register'>Log in</Link></span>
     </Form>
     </div>
   );

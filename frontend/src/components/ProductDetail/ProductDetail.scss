@@ -25,3 +25,23 @@
     }
     height: 80vh;
 }
+
+.like {
+    margin: 1em;
+    .anticon {
+        font-size: 2em;
+    }
+}
+
+.botones {
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    button {
+        margin: 1em;
+        svg {
+            color: black;
+        }
+    }
+}

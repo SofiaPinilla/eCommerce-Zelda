@@ -109,3 +109,9 @@ export const addCart = (productDetail) => {
         })
     }
 }
+
+export const clearCart = () => {
+    store.dispatch({
+        type: 'CLEAR_CART'
+    })
+}

@@ -5,6 +5,7 @@ import './Login.scss'
 import { notification } from 'antd';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { login } from '../../redux/actions/user';
+import { Link } from 'react-router-dom';
 
 
 export default function Login(props) {
@@ -73,6 +74,7 @@ export default function Login(props) {
               Submit
             </Button>
           </Form.Item>
+          <span className="redirección">Still without an account?  <Link to='register'>Register</Link></span>
         </Form>
         </div>
       );

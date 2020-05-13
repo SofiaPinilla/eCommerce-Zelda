@@ -20,7 +20,7 @@ const OrderController = {
                 deliveryDate: req.body.deliveryDate,
                 userId: req.user._id,
             })
-            await User.findByIdAndUpdate(req.user._id, { $push: { orderIds: req.user._id } })
+            await User.findByIdAndUpdate(req.user._id, { $push: { orderIds: order._id } })
 
             res.status(201).send(order)
         } catch (error) {

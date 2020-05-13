@@ -12,6 +12,10 @@
         width: 70%;
         height: 30vh;
     }
+    .ant-btn-primary {
+        background-color: #96969623;
+        border-color: #8b8b8b00;
+    }
 }
 
 .ant-modal-mask {
@@ -27,9 +31,4 @@
 .ant-modal-content {
     width: 40vw;
     background-color: rgba(134, 134, 134, 0.103);
-}
-
-.ant-btn-primary {
-    background-color: #96969623;
-    border-color: #8b8b8b00;
 }

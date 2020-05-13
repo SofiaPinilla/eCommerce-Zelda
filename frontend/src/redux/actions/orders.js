@@ -1,5 +1,6 @@
 import store from '../store';
 import axios from 'axios';
+import { clearCart } from './products';
 
 
 export const order = async(productId) => {
@@ -16,5 +17,5 @@ export const order = async(productId) => {
     } catch (error) {
         console.error(error)
     }
-
+    clearCart()
 }
