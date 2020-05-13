@@ -18,6 +18,8 @@ import  Profile  from "./components/Profile/Profile";
 import  NotFound  from "./components/NotFound/NotFound";
 import ProductDetailFuncional from "./components/ProductDetail/ProductDetailFuncional";
 import Products from "./components/Products/Products";
+import Cart from "./components/Cart/Cart";
+import OrderSteps  from "./components/Cart/OrderSteps/OrderSteps";
 function App() {
   return (
       <Router><main>
@@ -38,6 +40,8 @@ function App() {
       <Route path="/profile" component={Profile}/>
       <Route path="/product/:_id" component={ProductDetailFuncional} exact/>
       <Route path="/products" component={Products} exact/>
+      <Route path="/cart" component={Cart} exact/>
+      <Route path="/steps" component={OrderSteps} exact/>
       <Route exact path='/**'  component={NotFound}/>
       </Switch>
     <Footer/>

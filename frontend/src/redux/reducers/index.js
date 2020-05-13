@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import user from "./user";
+import order from "./order";
 import product from "./products";
 import lastProduct from "./products";
 import categories from "./products";
@@ -13,6 +14,7 @@ const reducer = combineReducers({
     categories,
     category,
     characters,
-    lastProduct
+    lastProduct,
+    order
 })
 export default reducer;

@@ -7,10 +7,10 @@ const OrderSchema = new mongoose.Schema({
         type: ObjectId,
         ref: 'User'
     },
-    productId: {
+    productId: [{
         type: ObjectId,
         ref: 'Product'
-    },
+    }],
     deliveryDate: Date
 }, { timestamps: true });
 OrderSchema.index({

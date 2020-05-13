@@ -100,13 +100,12 @@ export const unLike = async(_id, product) => {
         console.error(error)
     }
 }
-export const addCart = ({ _id }) => {
+export const addCart = (productDetail) => {
     const { product } = store.getState();
-    // console.log(product)
-    if (!product.cart.includes(_id)) {
+    if (!product.cart.map(product => product._id).includes(productDetail._id)) {
         store.dispatch({
             type: 'ADD_CART',
-            payload: _id
+            payload: productDetail
         })
     }
 }

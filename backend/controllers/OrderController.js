@@ -15,12 +15,13 @@ const OrderController = {
     },
     async addOrder(req, res) {
         try {
-            const order = await Order.create({
+            const order = await Order.create({...req.body,
                 status: "pending",
                 deliveryDate: req.body.deliveryDate,
                 userId: req.user._id,
             })
             await User.findByIdAndUpdate(req.user._id, { $push: { orderIds: req.user._id } })
+
             res.status(201).send(order)
         } catch (error) {
             console.error(error);

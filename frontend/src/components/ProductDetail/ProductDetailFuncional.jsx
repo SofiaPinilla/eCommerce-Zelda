@@ -12,7 +12,7 @@ import { ShoppingCartOutlined } from '@ant-design/icons';
 // const { Meta } = Card;
 const ProductDetailFuncional = ({ productDetail,user }) => {
     const { _id } = useParams();//extraemos el parámetro _id de la ruta (ActivatedRoute para recoger params)
-    const isAlreadyLiked = productDetail?.favoritos?.includes(user._id);
+    const isAlreadyLiked = productDetail?.favoritos?.includes(user?._id);
     useEffect(() => {//componentDidMount() equivalent
         getProductDetail(_id);
     }, []);
