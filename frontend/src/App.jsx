@@ -44,7 +44,7 @@ function App() {
       <Route path="/steps" component={OrderSteps} exact/>
       <Route exact path='/**'  component={NotFound}/>
       </Switch>
-    <Footer/>
+    {/* <Footer/> */}
     </div>
     </main>
     </Router>

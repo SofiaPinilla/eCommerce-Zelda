@@ -21,6 +21,7 @@ export const Category = (props) => {
                     hoverable
                     cover={<img alt="example" src={category.image_path} />}
                 >
+                    {console.log(category)}
                     <Meta title={category.name} description={category.price + '€'} />
                 </Card></Link>
                 

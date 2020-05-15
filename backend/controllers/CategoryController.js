@@ -3,7 +3,7 @@ const Category = require('../models/Category.js');
 const CategoryController = {
     getAll(req, res) {
         Category.find({})
-            .populate('ProductId')
+            .populate('productIds')
             .then(categories => res.send(categories))
             .catch(err => {
                 console.error(err)
@@ -12,7 +12,7 @@ const CategoryController = {
     },
     getCategoryByName(req, res) {
         Category.findOne({ nombre: req.params.nombre })
-            .populate('ProductId')
+            .populate('productIds')
             .then(categories => res.send(categories))
             .catch(err => {
                 console.log(err)

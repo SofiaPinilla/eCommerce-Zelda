@@ -48,7 +48,7 @@ class OrderSteps extends React.Component {
 
   render() {
     const { current } = this.state;
-    const orderita = this.props.products?.map(p => p._id)
+    const orderita = this.props.products?.map(p => ({_id:p._id,units:p.units}))
     return (
       <div>
      
@@ -66,7 +66,7 @@ class OrderSteps extends React.Component {
           )}
           {current === steps.length -1 && (
             <Link to='/' > <Button type="primary" onClick={() =>  order(orderita)}>
-            Buy more products
+            Finish checkout
             {console.log(orderita)}
           </Button></Link>
            

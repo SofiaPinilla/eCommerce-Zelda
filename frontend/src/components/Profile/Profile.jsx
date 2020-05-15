@@ -47,8 +47,20 @@ const Profile = ({user}) => {
 <div className="pedidos">
 <Collapse defaultActiveKey={['1']} onChange={callback}>
     <Panel header={order.status} key="2">
-      <p>Product: {order.productId?.map(product => product.name)} {order.productId?.map(product => product.price)} €</p>
-    <p>    Total price: {order.productId?.reduce((prev, cur) => prev + cur.price,0)?.toFixed(2)}€</p>
+      <p>Product: {order.productIds?.map(product => { return (
+
+      <div>{product.name}
+      <p className="unidades">
+      {product.units} </p>
+      <p className="unidades">
+      {product._id.price}€ </p>
+      {product.units*product._id.price}€
+      </div>
+      )
+          })} 
+         </p>
+    {/* <p>{product.units}</p> */}
+    <p>    Total price: {order.productIds?.reduce((prev, cur) => prev + (cur._id.price*cur.units),0)?.toFixed(2)}€</p>
     </Panel>
   </Collapse>
     

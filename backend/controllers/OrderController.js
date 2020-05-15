@@ -5,7 +5,7 @@ const User = require('../models/User.js');
 const OrderController = {
     getAll(req, res) {
         Order.find({})
-            .populate('productId')
+            .populate('productIds')
             .populate('userId')
             .then(orders => res.send(orders))
             .catch(err => {
@@ -17,8 +17,8 @@ const OrderController = {
         try {
             const order = await Order.create({...req.body,
                 status: "pending",
-                deliveryDate: req.body.deliveryDate,
-                userId: req.user._id,
+                deliveryDate: new Date(),
+                userId: req.user._id
             })
             await User.findByIdAndUpdate(req.user._id, { $push: { orderIds: order._id } })
 

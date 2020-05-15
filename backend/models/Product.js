@@ -36,10 +36,13 @@ const ProductSchema = new mongoose.Schema({
         type: ObjectId,
         ref: 'Category'
     },
-    commentId: [{
-        type: ObjectId,
-        ref: 'Comment'
-    }],
+    reviews: [{
+        points: Number,
+        userId: { type: ObjectId, ref: 'User' },
+        comment: String,
+        image_path: String,
+        reviewDate: Date
+    }]
 
 }, { timestamps: true });
 ProductSchema.index({

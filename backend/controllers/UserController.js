@@ -11,11 +11,11 @@ const UserController = {
             .populate({
                 path: 'orderIds',
                 populate: {
-                    path: 'productId'
+                    path: 'productIds._id'
                 }
             })
             // .populate('stars.user')
-            .then(user => res.send(user), )
+            .then(user => res.send(user))
             .catch(console.error);
     },
     async register(req, res) {

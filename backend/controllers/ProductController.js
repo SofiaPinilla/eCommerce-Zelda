@@ -56,8 +56,7 @@ const ProductController = {
     async like(req, res) {
         try {
             // if (product.likes.includes()) {}
-            const product =
-                await Product.findByIdAndUpdate(req.params._id, { $push: { favoritos: req.user._id } }, { new: true });
+            const product = await Product.findByIdAndUpdate(req.params._id, { $push: { favoritos: req.user._id } }, { new: true });
             const user = await User.findByIdAndUpdate(req.user._id, { $push: { favoritos: req.params._id } }, { new: true });
 
             res.send(product);
@@ -74,6 +73,17 @@ const ProductController = {
         } catch (error) {
             console.error(error);
             res.status(500).send({ message: 'There was a problem with your like' })
+        }
+    },
+    async insertComment(req, res) {
+        try {
+            if (req.file) req.body.image_path = req.file.filename;
+            const product = await Product.findByIdAndUpdate(req.params._id, { $push: { reviews: {...req.body, reviewDate: new Date() } } }, { new: true });
+            res.send(product);
+
+        } catch (error) {
+            console.error(error);
+            res.status(500).send({ message: 'There was a problem with your review' })
         }
     },
 }

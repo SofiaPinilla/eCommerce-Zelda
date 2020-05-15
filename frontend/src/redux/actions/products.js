@@ -51,7 +51,7 @@ export const category = async(categoryName) => {
         const res = await axios.get('http://localhost:3002/categories/name/' + categoryName)
         store.dispatch({
             type: 'CATEGORY',
-            category: res.data.ProductId
+            category: res.data.productIds
         })
     } catch (error) {
         console.error(error)
@@ -105,13 +105,32 @@ export const addCart = (productDetail) => {
     if (!product.cart.map(product => product._id).includes(productDetail._id)) {
         store.dispatch({
             type: 'ADD_CART',
-            payload: productDetail
+            payload: {...productDetail, units: 1 }
         })
     }
 }
-
+export const setCart = (products) => store.dispatch({
+    type: 'SET_CART',
+    payload: products
+})
 export const clearCart = () => {
     store.dispatch({
         type: 'CLEAR_CART'
     })
+}
+export const addComment = async(_id, formData) => {
+    try {
+        await axios.put(`http://localhost:3002/products/reviews/${_id}`, formData, {
+            headers: {
+                authorization: localStorage.getItem('authToken')
+            }
+        });
+        store.dispatch({
+            type: 'COMMENT',
+        })
+        products();
+        getProductDetail(_id);
+    } catch (error) {
+        console.error(error)
+    }
 }

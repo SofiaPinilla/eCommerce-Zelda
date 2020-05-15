@@ -12,6 +12,9 @@ const OrderDetail = ({ products }) => {
                         return <div className="datos">
                            <p className="nombres">{product.name}</p> 
                     <p>{product.price} €</p>
+                    <p className="unidades">
+                    {product.units*product.price}€ </p>
+     
                         </div>
                     }
                         ) }

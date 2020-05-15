@@ -8,7 +8,7 @@ const CategorySchema = new mongoose.Schema({
         unique: true,
         required: true
     },
-    ProductId: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
+    productIds: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
 
 }, { timestamps: true });
 CategorySchema.index({
