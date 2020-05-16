@@ -49,12 +49,14 @@ const Profile = ({user}) => {
     <Panel header={order.status} key="2">
       <p>Product: {order.productIds?.map(product => { return (
 
-      <div>{product.name}
+      <div>
+          {console.log(product.name)}
+          {product.name}
       <p className="unidades">
-      {product.units} </p>
+      Units: {product.units} </p>
       <p className="unidades">
-      {product._id.price}€ </p>
-      {product.units*product._id.price}€
+     Price/unit: {product._id.price}€ </p>
+      Total price:{product.units*product._id.price}€
       </div>
       )
           })} 

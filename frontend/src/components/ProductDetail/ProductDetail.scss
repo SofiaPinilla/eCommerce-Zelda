@@ -1,13 +1,3 @@
-// .product {
-//     padding: 0.5em;
-//     .detail {
-//         display: flex;
-//         flex-direction: column;
-//     }
-//     img {
-//         max-width: 50vw;
-//     }
-// }
 .product2 {
     padding: 5em;
     display: flex;
@@ -20,16 +10,20 @@
         // width: 100%;
         height: 30vh;
     }
-    .anticon svg {
-        color: red;
+    button {
+        height: 3em;
+        .anticon {
+            font-size: 1.5em;
+        }
     }
     height: 80vh;
 }
 
 .like {
-    margin: 1em;
+    margin: 1.5em;
     .anticon {
         font-size: 2em;
+        color: red;
     }
 }
 
@@ -51,10 +45,64 @@
 }
 
 .comentarios {
+    display: flex;
+    flex-direction: column;
     margin: 1em;
+    padding: 1em;
     img {
+        margin: 1em;
         width: 20vw;
         height: 20vh;
     }
-    background-color: rgba(100, 100, 100, 0.295);
+    background-color: rgba(211, 211, 211, 0.295);
+}
+
+.btn-tertiary {
+    color: #40A9FF;
+    padding: 1em;
+    line-height: 3em;
+    width: 10em;
+    margin: 0.1em;
+    display: block;
+    border: 1px solid #40A9FF;
+    transition: 1s;
+    &:hover,
+    &:focus {
+        color: lighten(#40A9FF, 20%);
+        border-color: lighten(#40A9FF, 20%);
+    }
+}
+
+
+/* input file style */
+
+.input-file {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    +.js-labelFile {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: 0 10px;
+        cursor: pointer;
+        .icon:before {
+            //font-awesome
+            content: "\f093";
+        }
+        &.has-file {
+            .icon:before {
+                //font-awesome
+                content: "\f00c";
+                color: #5AAC7B;
+            }
+        }
+    }
+}
+
+.input {
+    all: unset;
 }

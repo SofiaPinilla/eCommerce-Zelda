@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { Button, Upload } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
+import { Rate } from 'antd';
 // const { Meta } = Card;
 import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
 const ProductDetailFuncional = ({ productDetail,user }) => {
@@ -23,6 +24,7 @@ const ProductDetailFuncional = ({ productDetail,user }) => {
         const formData = new FormData();
         if (event.target.image.files[0]) formData.set('image', event.target.image.files[0]);
         formData.set('comment', event.target.comment.value)
+        formData.set('points',  localStorage.getItem('index'))
         // .then(dog => {
         //     notification.success({message:'Thank you, your opinion is important! '})
         // })
@@ -31,8 +33,11 @@ const ProductDetailFuncional = ({ productDetail,user }) => {
         // })
         addComment(productDetail._id,formData)
     }
-  
-    console.log(productDetail._id)
+    const review = productDetail?.reviews
+    console.log(review)
+    const total= review?.reduce((prev, cur) => prev + cur.points,0)/ review.length
+    console.log( review?.reduce((prev, cur) => prev + cur.points,0)/ review.length)
+  const totalFixed = total.toFixed(1)
     return (<div className="product2">
 
         <div> <img src={productDetail.image_path} alt="" /></div>
@@ -49,8 +54,11 @@ const ProductDetailFuncional = ({ productDetail,user }) => {
           
             </div>
            
-            <span >Favoritos: {favoritos?.length}</span>
-            
+            <span >Favorites: {favoritos?.length}</span>
+            <br/>
+            <span>  Rate : <Rate disabled value = {totalFixed}/>  ({totalFixed})
+            </span>
+          
 
             <div className="botones">
                 <div className="like">
@@ -64,19 +72,22 @@ const ProductDetailFuncional = ({ productDetail,user }) => {
             </div>
             <hr className="linea"/>
             <h2>Reviews</h2>
+           
             <div>
                   <form action="" onSubmit={handle}>
+                  <Rate  name="rate"
+          onChange={(index) => localStorage.setItem('index', `${index}`)}
+         />
                   <Input name="comment" placeholder="add comment" />
-              
-                  <Upload.Dragger  action="/upload.do">
-            <p className="ant-upload-drag-icon">
-              <InboxOutlined />
-            </p>
-            {/* <input type="file" name="image"/> */}
-            <p className="ant-upload-text">Click or drag file to this area to upload</p>
-            <p className="ant-upload-hint">Support for a single or bulk upload.</p>
-          </Upload.Dragger>
-                  <input  type="submit" value="add review" />
+                  <input type="file" name="image" id="file" class="input-file"/>
+  <label for="file" class="btn btn-tertiary js-labelFile">
+    <i class="icon fa fa-check"></i>
+    <span class="js-fileName">Choose a file</span>
+  </label> 
+  
+  <Button type="primary" >
+                  <input className="input" type="submit" value="add review" />
+        </Button>
                   </form>
                 </div>
           {productDetail.reviews.reverse().map(comment => {
@@ -86,9 +97,12 @@ const ProductDetailFuncional = ({ productDetail,user }) => {
               <div className="contenedor">
                 
                 <div className="comentarios">
-                <p>{comment.comment}</p>
+              <h3>{comment?.userId?.nombre}</h3>
+              <Rate disabled value = {comment?.points}/>
               <p>{comment.reviewDate}</p>
+                <p>{comment.comment}</p>
                 <img src={image} alt=""/>
+              {console.log(comment)}
                 </div>
                
                   </div>

@@ -47,6 +47,7 @@ const ProductController = {
     getById(req, res) {
         Product.findById(req.params._id)
             .populate('userId')
+            .populate('reviews.userId')
             .then(product => res.send(product))
             .catch(error => {
                 console.error(error);
@@ -78,7 +79,7 @@ const ProductController = {
     async insertComment(req, res) {
         try {
             if (req.file) req.body.image_path = req.file.filename;
-            const product = await Product.findByIdAndUpdate(req.params._id, { $push: { reviews: {...req.body, reviewDate: new Date() } } }, { new: true });
+            const product = await Product.findByIdAndUpdate(req.params._id, { $push: { reviews: {...req.body, reviewDate: new Date(), userId: req.user._id } } }, { new: true });
             res.send(product);
 
         } catch (error) {
