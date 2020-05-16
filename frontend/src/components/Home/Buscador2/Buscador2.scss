@@ -15,3 +15,13 @@
     border-radius: 1em;
     width: 40vw;
 }
+
+@media(max-width: 700px) {
+    .search {
+        height: 25vh;
+        background-color: black;
+        .busca {
+            width: 80vw;
+        }
+    }
+}

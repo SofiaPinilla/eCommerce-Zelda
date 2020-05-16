@@ -2,4 +2,26 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    .favoritos {
+        margin: 2em;
+        padding: 1em;
+        width: 40vw;
+        height: 10vh;
+        border: 0.5px solid rgba(138, 138, 138, 0.267);
+        /* background-color: #f0f0f0; */
+        transition: 1s;
+        img {
+            padding: 1em;
+            width: 5vw;
+            height: 10vh;
+            transition: 0.5s;
+            &:hover {
+                border-radius: 0.5em;
+                background-color: rgba(182, 182, 182, 0.363);
+            }
+        }
+        &:hover {
+            background-color: white;
+        }
+    }
 }

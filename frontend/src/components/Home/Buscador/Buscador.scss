@@ -8,3 +8,12 @@
         position: absolute;
     }
 }
+
+@media(max-width: 700px) {
+    .imagenInicio {
+        img {
+            width: 100vw;
+            height: 25vh;
+        }
+    }
+}

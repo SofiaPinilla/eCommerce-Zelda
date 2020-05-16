@@ -11,9 +11,9 @@ const OrderDetail = ({ products }) => {
                     {products?.map(product=> {
                         return <div className="datos">
                            <p className="nombres">{product.name}</p> 
-                    <p>{product.price} €</p>
+                    <p>Price/unit: {product.price} €</p>
                     <p className="unidades">
-                    {product.units*product.price}€ </p>
+                    Price: {product.units*product.price}€ </p>
      
                         </div>
                     }

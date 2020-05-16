@@ -31,3 +31,9 @@
     display: flex;
     justify-content: center;
 }
+
+@media(max-width: 700px) {
+    .ant-carousel .slick-slide {
+        width: 100vw;
+    }
+}

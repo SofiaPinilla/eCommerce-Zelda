@@ -56,7 +56,8 @@ const ProductDetailFuncional = ({ productDetail,user }) => {
            
             <span >Favorites: {favoritos?.length}</span>
             <br/>
-            <span>  Rate : <Rate disabled value = {totalFixed}/>  ({totalFixed})
+            <span>  Rate : <Rate disabled value = {totalFixed}/>  {totalFixed >= 0?
+              <span>({totalFixed} de 5)</span>: ''}
             </span>
           
 

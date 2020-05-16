@@ -47,11 +47,10 @@ const Profile = ({user}) => {
 <div className="pedidos">
 <Collapse defaultActiveKey={['1']} onChange={callback}>
     <Panel header={order.status} key="2">
-      <p>Product: {order.productIds?.map(product => { return (
+      <p>Order: {order.productIds?.map(product => { return (
 
       <div>
-          {console.log(product.name)}
-          {product.name}
+          <p>Product: {product._id.name}</p> 
       <p className="unidades">
       Units: {product.units} </p>
       <p className="unidades">

@@ -72,3 +72,12 @@ a {
 input {
     color: black;
 }
+
+@media(max-width: 700px) {
+    .ant-menu-horizontal {
+        font-size: 0.7em;
+        img {
+            width: 10vw;
+        }
+    }
+}
