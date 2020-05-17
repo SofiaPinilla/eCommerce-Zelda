@@ -17,7 +17,7 @@ const ProductSchema = new mongoose.Schema({
 
     image_path: {
         type: String,
-        required: [true, 'El campo ruta de imagen es requerido']
+        // required: [true, 'El campo ruta de imagen es requerido']
     },
     favoritos: { ObjectId },
     stock: {

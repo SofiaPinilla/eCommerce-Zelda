@@ -37,6 +37,7 @@ const ProductController = {
             })
     },
     addProduct(req, res) {
+        if (req.file) req.body.image_path = req.file.filename;
         Product.create({...req.body })
             .then(product => res.status(201).send(product))
             .catch(err => {
@@ -86,6 +87,13 @@ const ProductController = {
             console.error(error);
             res.status(500).send({ message: 'There was a problem with your review' })
         }
+    },
+    update(req, res) { //new es para que devuelva el registro actualizado, por defecto es false por lo que la promesa se resuelve con el registro sin actualizar
+        if (req.file) req.body.image_path = req.file.filename;
+        Product.findByIdAndUpdate(req.params._id, req.body, { new: true }) // mongoose method which uses the findOneAndUpdate()
+            // Product.findOneAndUpdate({_id:req.params._id} ) // Mongodb method
+            .then(product => res.send({ message: 'product successfully updated', product }))
+            .catch(console.error)
     },
 }
 

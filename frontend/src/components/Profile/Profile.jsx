@@ -30,7 +30,7 @@ const Profile = ({user}) => {
         
     </Card>
     </div>
-    <div>
+    <div className="listaFavoritos"> 
         <h1>Favoritos</h1>
     {user?.favoritos?.map(favorito=> {return(
         <Link key={favorito._id} to={'/product/'+favorito._id}>
@@ -41,13 +41,13 @@ const Profile = ({user}) => {
             )}
 )}
     </div>
-    <div>
+    <div className="listaFavoritos">
         <h1>My orders</h1>
     {user?.orderIds?.map(order=> {return(
 <div className="pedidos">
 <Collapse defaultActiveKey={['1']} onChange={callback}>
     <Panel header={order.status} key="2">
-      <p>Order: {order.productIds?.map(product => { return (
+      <p><h3>Order:</h3> {order.productIds?.map(product => { return (
 
       <div>
           <p>Product: {product._id.name}</p> 

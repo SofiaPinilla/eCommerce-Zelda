@@ -12,6 +12,40 @@ export const products = async() => {
         console.error(error)
     }
 }
+export const addProduct = async(formData) => {
+    try {
+        const res = await axios.post('http://localhost:3002/products', formData, {
+            headers: {
+                authorization: localStorage.getItem('authToken')
+            }
+        })
+        store.dispatch({
+            type: 'ADD_PRODUCTS',
+            products: res.data
+        })
+        products();
+    } catch (error) {
+        console.error(error)
+    }
+}
+export const editProduct = async(_id, formData) => {
+    try {
+        const res = await axios.put('http://localhost:3002/products/' + _id, formData, {
+            headers: {
+                authorization: localStorage.getItem('authToken')
+            }
+        })
+        store.dispatch({
+            type: 'ADD_PRODUCTS',
+            products: res.data
+        })
+        products();
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+
 
 export const getProductDetail = async(_id) => {
     try {

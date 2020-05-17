@@ -41,3 +41,22 @@
 .unidades {
     // background-color: red;
 }
+
+.listaFavoritos {
+    overflow: auto;
+    height: 50vh;
+}
+
+.listaFavoritos::-webkit-scrollbar {
+    width: 1em;
+}
+
+.listaFavoritos::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.listaFavoritos::-webkit-scrollbar-thumb {
+    border-radius: 0.8em;
+    background-color: rgb(72, 160, 255);
+    outline: 1px solid slategrey;
+}

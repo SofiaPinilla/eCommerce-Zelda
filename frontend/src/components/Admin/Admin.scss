@@ -1,0 +1,17 @@
+.createProduct {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.ant-modal-content {
+    width: 40vw;
+    background-color: #FFFFFF;
+    border: 1px solid black;
+}
+
+.ant-modal-content {
+    position: relative;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}

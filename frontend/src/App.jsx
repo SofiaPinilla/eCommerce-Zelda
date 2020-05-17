@@ -20,6 +20,10 @@ import ProductDetailFuncional from "./components/ProductDetail/ProductDetailFunc
 import Products from "./components/Products/Products";
 import Cart from "./components/Cart/Cart";
 import OrderSteps  from "./components/Cart/OrderSteps/OrderSteps";
+import Admin  from "./components/Admin/Admin";
+import EditProduct  from "./components/Admin/EditProduct/EditProduct";
+import PrivateZone from './guards/PrivateZone';
+
 function App() {
   return (
       <Router><main>
@@ -37,14 +41,18 @@ function App() {
       <Route path="/categories" component={Categories}/>
       <Route path="/category/:categoryName" component={Category}/>
       <Route path="/slider" component={SliderRecientes}/>
-      <Route path="/profile" component={Profile}/>
-      <Route path="/product/:_id" component={ProductDetailFuncional} exact/>
       <Route path="/products" component={Products} exact/>
       <Route path="/cart" component={Cart} exact/>
       <Route path="/steps" component={OrderSteps} exact/>
-      <Route exact path='/**'  component={NotFound}/>
+      <Route path="/modal" component={EditProduct} exact/>
+      <Route path="/product/:_id" component={ProductDetailFuncional} exact/>
+      <PrivateZone>
+      <Route path="/profile" component={Profile}/>
+      <Route path="/admin" component={Admin} exact/>
+            </PrivateZone>
+            <Route exact path='/**'  component={NotFound}/>
       </Switch>
-    {/* <Footer/> */}
+    <Footer/>
     </div>
     </main>
     </Router>

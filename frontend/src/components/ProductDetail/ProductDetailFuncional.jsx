@@ -5,12 +5,11 @@ import 'antd/dist/antd.css';
 import { HeartOutlined,HeartFilled  } from '@ant-design/icons';
 import { addCart, like, getProductDetail,unLike, addComment } from '../../redux/actions/products';
 import { connect } from 'react-redux';
-import { Button, Upload } from 'antd';
+import { Button} from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 import { Rate } from 'antd';
-// const { Meta } = Card;
-import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
+import PrivateZone from '../../guards/PrivateZone';
 const ProductDetailFuncional = ({ productDetail,user }) => {
     const { _id } = useParams();//extraemos el parámetro _id de la ruta (ActivatedRoute para recoger params)
     const favoritos = productDetail?.favoritos
@@ -68,7 +67,7 @@ const ProductDetailFuncional = ({ productDetail,user }) => {
  <HeartOutlined onClick={isAlreadyLiked ? () =>unLike(productDetail._id, productDetail): () => like(productDetail._id, productDetail)}/>
                 }
                 </div>
-                
+              
             <Button type="primary" onClick={addCart.bind(this, productDetail)}>Add to cart<ShoppingCartOutlined  /></Button>  
             </div>
             <hr className="linea"/>
@@ -92,7 +91,7 @@ const ProductDetailFuncional = ({ productDetail,user }) => {
                   </form>
                 </div>
           {productDetail.reviews.reverse().map(comment => {
-              const image = "http://localhost:3002/images/user/comments/" + comment.image_path
+              // const image = "http://localhost:3002/images/user/comments/" + comment.image_path
                
               return (
               <div className="contenedor">
@@ -102,7 +101,7 @@ const ProductDetailFuncional = ({ productDetail,user }) => {
               <Rate disabled value = {comment?.points}/>
               <p>{comment.reviewDate}</p>
                 <p>{comment.comment}</p>
-                <img src={image} alt=""/>
+                <img src={comment.image_path} alt=""/>
               {console.log(comment)}
                 </div>
                

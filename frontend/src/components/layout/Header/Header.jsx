@@ -15,7 +15,7 @@ const { SubMenu } = Menu;
 
 function Header(props) {
   const history = useHistory();//el history del BOM dopado
-
+  let role=props.user?.user?.role
   function handleChange(e) {
     if (e.key === 'Enter') {
       const productName = e.target.value;
@@ -42,6 +42,8 @@ function Header(props) {
           <Menu.Item key="setting:3"><Link to="/category/Amiibos">Amiibos</Link></Menu.Item>
         </SubMenu>
         <Menu.Item><Link to="/about">About</Link></Menu.Item>
+        {role== 'admin' ? <Menu.Item><Link to="/admin">Admin</Link></Menu.Item> : ''}
+        {console.log(role)}
         <Menu.Item><Search onKeyUp={handleChange} placeholder="search product"
           onSearch={value => value}
           style={{ width: 200 }}
@@ -51,7 +53,7 @@ function Header(props) {
           <div className="userZone">
             <UserOutlined />
             <Link to='/profile' >{props.user.user.nombre}</Link>
-            <Link to='login' onClick={logout}>Logout</Link>
+            <Link to='/login' onClick={logout}>Logout</Link>
             <Badge className="carrito" count={props.cart?.length}>
             <Link to='/steps' ><ShoppingCartOutlined  /></Link> 
             </Badge>

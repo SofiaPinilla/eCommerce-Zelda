@@ -14,7 +14,7 @@ const Cart = ({ products }) => {
         setCart(productsCopy);
     }
     return (
-        <div >
+        <div className="listaFavoritos">
             <h1 className="title">Cart</h1>
             {products?.map( (product,index)=> {
                 return <div key={product?._id} className="cart">
