@@ -22,7 +22,7 @@ const Profile = ({user}) => {
 <div className="site-card-border-less-wrapper">
     <div >
 
-    <h1>Datos</h1>
+    <h1>My data</h1>
     <Card title={user?.nombre} bordered={false} style={{ width: 300 }}>
          <p>Surname: {user?.apellidos}</p>
          <p>DNI: {user?.DNI}</p>
@@ -31,7 +31,7 @@ const Profile = ({user}) => {
     </Card>
     </div>
     <div className="listaFavoritos"> 
-        <h1>Favoritos</h1>
+        <h1>Wish list</h1>
     {user?.favoritos?.map(favorito=> {return(
         <Link key={favorito._id} to={'/product/'+favorito._id}>
 <div className="favoritos"> 

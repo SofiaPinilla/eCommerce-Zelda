@@ -17,10 +17,12 @@ const Products = (props) => {
         <img className="separador" src="https://zelda.com/assets/img/home/hyrule_rule.png" alt=""/>
       <div className="products">
         { props.products?.map(function(product) {
-            //   const image = "http://localhost:3002/images/user/products/" + product.image_path
+              const image = "http://localhost:3002/images/user/products/" + product.image_path
           return <div key={product._id} className="product">
             <Link className="product" key={product._id} to={'/product/'+product._id}>
-                  <Card hoverable cover={<img alt="example" src={product.image_path} />}>
+                  <Card hoverable cover={product.image_path?.includes('http') ?
+                <img src={product.image_path} alt="" /> : <img src={image} alt="" />
+              }>
     <Meta title={product.name} description={product.price + '€'} />
   </Card></Link>
                 </div>

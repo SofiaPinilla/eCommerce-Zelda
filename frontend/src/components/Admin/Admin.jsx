@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import './Admin.scss'
-import { addProduct, deleteProduct } from '../../redux/actions/products';
+import { addProduct, deleteProduct, editProduct } from '../../redux/actions/products';
 import { connect } from 'react-redux';
 import { Input } from 'antd';
 import { InputNumber } from 'antd';
 import { notification } from 'antd';
 import { Modal, Button, Space } from 'antd';
-import { editProduct } from '../../redux/actions/products';
 import { Select } from 'antd';
 
 const { Option } = Select;
@@ -39,7 +38,7 @@ const Admin = (props) => {
       <h1>Create product</h1>
       <div className="createProduct">
 
-        <form action="" onSubmit={handleSubmit}>
+        <form className="formProduct"action="" onSubmit={handleSubmit}>
           <Input name="name" placeholder="add name" />
           <Input name="description" placeholder="add description" />
 
@@ -60,9 +59,6 @@ const Admin = (props) => {
             <Option value="5eade2fc77310d35442d86cc">Amiibos</Option>
           </Select>
           </p>
-        
-
-
           <Button type="primary" >
             <input className="input" type="submit" value="Create product" />
           </Button>
@@ -93,34 +89,28 @@ const Admin = (props) => {
           title: 'Edit your product!',
           content: (
             <div>
-
               <form action="" onSubmit={handle2}>
                 <Input name="name" placeholder="add name" />
                 <Input name="description" placeholder="add description" />
-
-                <input type="file" name="imageProduct" id="file" class="input-file" />
-                <label for="file" class="btn btn-tertiary js-labelFile">
-                  <i class="icon fa fa-check"></i>
-                  <span class="js-fileName">Choose a file</span>
-                </label> <p>Price:    <InputNumber name="price" size="large" min={1} max={100000} defaultValue={3} /> €</p>
+<input type="file" name="imageProduct"/>
+                 <p>Price:    <InputNumber name="price" size="large" min={1} max={100000} defaultValue={3} /> €</p>
                 <p>Stock:  <InputNumber name="stock" size="large" min={1} max={100000} defaultValue={3} /></p>
-
-
                 <Button type="primary" >
-                  <input className="input" type="submit" value="edit product" />
+                  <input className="input" type="submit" value="Edit product" />
                 </Button>
               </form>
             </div>
           ),
         };
         return (
+    
           <div className="productsAdmin">
-
+ 
             <div className="productAdmin">
               <p>Name: {product.name}</p>
               <p>Description: {product.description}</p>
-              <p>Stock: {product.stock}</p>
               <p>Price: {product.price} €</p>
+              <p>Stock: {product.stock} units</p>
               {product.image_path?.includes('http') ?
                 <img src={product.image_path} alt="" /> : <img src={image} alt="" />
               }

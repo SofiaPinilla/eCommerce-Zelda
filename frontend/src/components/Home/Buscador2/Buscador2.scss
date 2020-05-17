@@ -8,12 +8,25 @@
     h1 {
         color: rgb(255, 255, 255);
     }
+    .ant-btn {
+        margin: 0em !important;
+    }
+    button,
+    html [type=button],
+    [type=reset],
+    [type=submit] {
+        padding: 0.5em !important;
+    }
 }
 
 .busca {
     padding: 1em;
     border-radius: 1em;
     width: 40vw;
+}
+
+.ant-input-group-addon {
+    background-color: #fafafa00;
 }
 
 @media(max-width: 700px) {

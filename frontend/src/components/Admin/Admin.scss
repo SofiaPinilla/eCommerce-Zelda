@@ -22,6 +22,16 @@
     margin: 0.5em;
 }
 
+.formProduct {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 40vw;
+    background-color: rgba(144, 221, 252, 0.233);
+    padding: 1em;
+    margin: 1em;
+}
+
 .productAdmin {
     border: 1px solid black;
     margin: 2em;
@@ -43,4 +53,27 @@
 
 .ant-select-single .ant-select-selector {
     margin: 0.5em;
+}
+
+.ant-btn {
+    margin: 1em;
+}
+
+input:not([type='range']),
+label,
+select,
+summary,
+textarea {
+    margin: 0.5em
+}
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+    padding-bottom: 2em;
+    padding-top: 0em;
+    /* padding: 1em; */
+    padding-left: 1em;
+    padding-right: 1em;
 }

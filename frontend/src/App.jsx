@@ -21,7 +21,6 @@ import Products from "./components/Products/Products";
 import Cart from "./components/Cart/Cart";
 import OrderSteps from "./components/Cart/OrderSteps/OrderSteps";
 import Admin from "./components/Admin/Admin";
-import EditProduct from "./components/Admin/EditProduct/EditProduct";
 import PrivateZone from './guards/PrivateZone';
 
 function App() {
@@ -44,12 +43,13 @@ function App() {
           <Route path="/products" component={Products} exact />
           <Route path="/cart" component={Cart} exact />
           <Route path="/steps" component={OrderSteps} exact />
-          <Route path="/modal" component={EditProduct} exact />
           <Route path="/product/:_id" component={ProductDetailFuncional} exact />
           <PrivateZone>
-            <Route path="/profile" component={Profile} />
-            <Route path="/admin" component={Admin} exact />
-            <Route exact path='/**' component={NotFound} />
+            <Switch>
+              <Route path="/profile" component={Profile} exact />
+              <Route path="/admin" component={Admin} exact />
+              <Route exact path='/**' component={NotFound} />
+            </Switch>
           </PrivateZone>
           <Route exact path='/**' component={NotFound} />
         </Switch>

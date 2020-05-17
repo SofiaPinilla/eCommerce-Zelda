@@ -9,7 +9,9 @@ import { Button} from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 import { Rate } from 'antd';
-import PrivateZone from '../../guards/PrivateZone';
+import Moment from 'react-moment';
+import 'moment-timezone';
+
 const ProductDetailFuncional = ({ productDetail,user }) => {
     const { _id } = useParams();//extraemos el parámetro _id de la ruta (ActivatedRoute para recoger params)
     const favoritos = productDetail?.favoritos
@@ -37,9 +39,14 @@ const ProductDetailFuncional = ({ productDetail,user }) => {
     const total= review?.reduce((prev, cur) => prev + cur.points,0)/ review.length
     console.log( review?.reduce((prev, cur) => prev + cur.points,0)/ review.length)
   const totalFixed = total.toFixed(1)
+  const image = "http://localhost:3002/images/user/products/" + productDetail.image_path
     return (<div className="product2">
 
-        <div> <img src={productDetail.image_path} alt="" /></div>
+        <div>
+        {productDetail.image_path?.includes('http') ?
+                 <img src={productDetail.image_path} alt="" /> : <img src={image} alt="" />
+              }
+          </div>
 
         <div className="description">
             <div>
@@ -53,7 +60,7 @@ const ProductDetailFuncional = ({ productDetail,user }) => {
           
             </div>
            
-            <span >Favorites: {favoritos?.length}</span>
+            <span className="wish" >Wish list: {favoritos?.length} < HeartFilled /></span>
             <br/>
             <span>  Rate : <Rate disabled value = {totalFixed}/>  {totalFixed >= 0?
               <span>({totalFixed} de 5)</span>: ''}
@@ -68,7 +75,7 @@ const ProductDetailFuncional = ({ productDetail,user }) => {
                 }
                 </div>
               
-            <Button type="primary" onClick={addCart.bind(this, productDetail)}>Add to cart<ShoppingCartOutlined  /></Button>  
+            <Button className="btn" type="primary" onClick={addCart.bind(this, productDetail)}>Add to cart<ShoppingCartOutlined className="carrito"  /></Button>  
             </div>
             <hr className="linea"/>
             <h2>Reviews</h2>
@@ -91,17 +98,18 @@ const ProductDetailFuncional = ({ productDetail,user }) => {
                   </form>
                 </div>
           {productDetail.reviews.reverse().map(comment => {
-              // const image = "http://localhost:3002/images/user/comments/" + comment.image_path
-               
+              const image = "http://localhost:3002/images/user/comments/" + comment.image_path
               return (
               <div className="contenedor">
                 
                 <div className="comentarios">
               <h3>{comment?.userId?.nombre}</h3>
               <Rate disabled value = {comment?.points}/>
-              <p>{comment.reviewDate}</p>
+              <Moment format="YYYY/MM/DD">{comment.reviewDate}</Moment>
                 <p>{comment.comment}</p>
-                <img src={comment.image_path} alt=""/>
+                {comment.image_path ?  
+               <img src={image} alt=""/> : '' }
+               
               {console.log(comment)}
                 </div>
                
