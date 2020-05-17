@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import "./App.css";
 import Header from "./components/layout/Header/Header";
@@ -14,46 +14,47 @@ import Category from "./components/Categories/Category/Category";
 import Login from "./components/Login/Login";
 import Favicon from 'react-favicon';
 import zelda from './logoZelda.png'
-import  Profile  from "./components/Profile/Profile";
-import  NotFound  from "./components/NotFound/NotFound";
+import Profile from "./components/Profile/Profile";
+import NotFound from "./components/NotFound/NotFound";
 import ProductDetailFuncional from "./components/ProductDetail/ProductDetailFuncional";
 import Products from "./components/Products/Products";
 import Cart from "./components/Cart/Cart";
-import OrderSteps  from "./components/Cart/OrderSteps/OrderSteps";
-import Admin  from "./components/Admin/Admin";
-import EditProduct  from "./components/Admin/EditProduct/EditProduct";
+import OrderSteps from "./components/Cart/OrderSteps/OrderSteps";
+import Admin from "./components/Admin/Admin";
+import EditProduct from "./components/Admin/EditProduct/EditProduct";
 import PrivateZone from './guards/PrivateZone';
 
 function App() {
   return (
-      <Router><main>
-    <div className="App">
-    <Favicon url={zelda} />
-      <header className="App-header">
-        <Header/>
-      </header>{" "}
-      <Switch>
-      <Route exact path="/" component={Home}/>
-      <Route path="/register" component={UserForm}/>
-      <Route path="/Login" component={Login}/>
-      <Route path="/about" component={About}/>
-      <Route path="/search/:productName" component={Search}/>
-      <Route path="/categories" component={Categories}/>
-      <Route path="/category/:categoryName" component={Category}/>
-      <Route path="/slider" component={SliderRecientes}/>
-      <Route path="/products" component={Products} exact/>
-      <Route path="/cart" component={Cart} exact/>
-      <Route path="/steps" component={OrderSteps} exact/>
-      <Route path="/modal" component={EditProduct} exact/>
-      <Route path="/product/:_id" component={ProductDetailFuncional} exact/>
-      <PrivateZone>
-      <Route path="/profile" component={Profile}/>
-      <Route path="/admin" component={Admin} exact/>
-            </PrivateZone>
-            <Route exact path='/**'  component={NotFound}/>
-      </Switch>
-    <Footer/>
-    </div>
+    <Router><main>
+      <div className="App">
+        <Favicon url={zelda} />
+        <header className="App-header">
+          <Header />
+        </header>{" "}
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/register" component={UserForm} />
+          <Route path="/Login" component={Login} />
+          <Route path="/about" component={About} />
+          <Route path="/search/:productName" component={Search} />
+          <Route path="/categories" component={Categories} />
+          <Route path="/category/:categoryName" component={Category} />
+          <Route path="/slider" component={SliderRecientes} />
+          <Route path="/products" component={Products} exact />
+          <Route path="/cart" component={Cart} exact />
+          <Route path="/steps" component={OrderSteps} exact />
+          <Route path="/modal" component={EditProduct} exact />
+          <Route path="/product/:_id" component={ProductDetailFuncional} exact />
+          <PrivateZone>
+            <Route path="/profile" component={Profile} />
+            <Route path="/admin" component={Admin} exact />
+            <Route exact path='/**' component={NotFound} />
+          </PrivateZone>
+          <Route exact path='/**' component={NotFound} />
+        </Switch>
+        <Footer />
+      </div>
     </main>
     </Router>
   );

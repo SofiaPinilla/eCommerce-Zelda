@@ -44,6 +44,22 @@ export const editProduct = async(_id, formData) => {
         console.error(error)
     }
 }
+export const deleteProduct = async(_id) => {
+    try {
+        const res = await axios.delete('http://localhost:3002/products/' + _id, {
+            headers: {
+                authorization: localStorage.getItem('authToken')
+            }
+        })
+        store.dispatch({
+            type: 'DELETE_PRODUCTS',
+            payload: res.data
+        })
+        products();
+    } catch (error) {
+        console.error(error)
+    }
+}
 
 
 

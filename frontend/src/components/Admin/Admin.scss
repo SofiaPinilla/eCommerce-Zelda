@@ -15,3 +15,32 @@
     -webkit-box-shadow: none;
     box-shadow: none;
 }
+
+.productsAdmin {
+    display: inline-block;
+    justify-content: center;
+    margin: 0.5em;
+}
+
+.productAdmin {
+    border: 1px solid black;
+    margin: 2em;
+    width: 20vw;
+    img {
+        width: 70%;
+        height: 30vh;
+        padding: 1em;
+    }
+}
+
+.ant-input:placeholder-shown {
+    margin: 0.5em;
+}
+
+.input-file+.js-labelFile {
+    margin: 0.5em;
+}
+
+.ant-select-single .ant-select-selector {
+    margin: 0.5em;
+}

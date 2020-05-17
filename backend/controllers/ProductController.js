@@ -36,14 +36,16 @@ const ProductController = {
                 res.status(500).send({ message: 'There was a problem trying to load products' })
             })
     },
-    addProduct(req, res) {
-        if (req.file) req.body.image_path = req.file.filename;
-        Product.create({...req.body })
-            .then(product => res.status(201).send(product))
-            .catch(err => {
-                console.log(err)
-                res.status(500).send({ message: 'Ha habido un problema al cargar los productos' })
-            })
+    async addProduct(req, res) {
+        try {
+            if (req.file) req.body.image_path = req.file.filename;
+            const product = await Product.create({...req.body })
+            await Category.findByIdAndUpdate(req.body.CategoryId, { $push: { productIds: product._id } });
+            res.status(201).send(product)
+        } catch (error) {
+            console.error(error)
+            res.status(500).send({ message: 'Ha habido un problema al cargar los productos' })
+        }
     },
     getById(req, res) {
         Product.findById(req.params._id)
@@ -88,12 +90,22 @@ const ProductController = {
             res.status(500).send({ message: 'There was a problem with your review' })
         }
     },
-    update(req, res) { //new es para que devuelva el registro actualizado, por defecto es false por lo que la promesa se resuelve con el registro sin actualizar
+    update(req, res) {
         if (req.file) req.body.image_path = req.file.filename;
-        Product.findByIdAndUpdate(req.params._id, req.body, { new: true }) // mongoose method which uses the findOneAndUpdate()
-            // Product.findOneAndUpdate({_id:req.params._id} ) // Mongodb method
+        Product.findByIdAndUpdate(req.params._id, req.body, { new: true })
             .then(product => res.send({ message: 'product successfully updated', product }))
             .catch(console.error)
+    },
+    async delete(req, res) {
+        try {
+            const product = await Product.findByIdAndDelete(req.params._id)
+            res.send({ product, message: 'Product deleted' })
+        } catch (error) {
+            console.error(error)
+            res.status(500).send({ message: 'there was a problem trying to remove the publication' })
+        }
+
+
     },
 }
 

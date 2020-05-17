@@ -13,5 +13,6 @@ router.put('/likes/:_id', authentication, ProductController.like);
 router.put('/dislikes/:_id', authentication, ProductController.disLike);
 router.put('/reviews/:_id', authentication, uploadCommentImages.single('image'), ProductController.insertComment)
 router.put('/:_id', authentication, isAdmin, uploadUserProductsImages.single('imageProduct'), ProductController.update);
+router.delete('/:_id', authentication, isAdmin, ProductController.delete);
 
 module.exports = router;

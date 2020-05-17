@@ -2,9 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 // import { order } from '../../redux/actions/orders';
-import { InputNumber } from 'antd';
+import { InputNumber,Button } from 'antd';
 import './Cart.scss'
-import { setCart } from '../../redux/actions/products';
+import { setCart, clearCart } from '../../redux/actions/products';
 
 const Cart = ({ products }) => {
     const onChange = (product,index, units) => {
@@ -27,7 +27,7 @@ const Cart = ({ products }) => {
                 </div>
             })
             }
-            {/* <button onClick={() => order(products.map(p => p._id))}>Terminar pedido</button> */}
+            <Button type="primary"onClick={() => clearCart()}>clearCart</Button>
         </div>
     )
 }
