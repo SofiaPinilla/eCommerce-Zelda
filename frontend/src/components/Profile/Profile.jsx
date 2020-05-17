@@ -32,10 +32,14 @@ const Profile = ({user}) => {
     </div>
     <div className="listaFavoritos"> 
         <h1>Wish list</h1>
-    {user?.favoritos?.map(favorito=> {return(
+    {user?.favoritos?.map(favorito=> {
+         const image = "http://localhost:3002/images/user/products/" + favorito.image_path
+        return(
         <Link key={favorito._id} to={'/product/'+favorito._id}>
 <div className="favoritos"> 
-<img src={favorito.image_path} alt=""/>
+{favorito.image_path?.includes('http') ?
+                <img src={favorito.image_path} alt="" /> : <img src={image} alt="" />
+              }
     <span> {favorito.name} </span>
 </div></Link>
             )}

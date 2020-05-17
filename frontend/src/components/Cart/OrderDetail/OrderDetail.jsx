@@ -18,7 +18,7 @@ const OrderDetail = ({ products }) => {
                         </div>
                     }
                         ) }
-                 <span className="totalPrice"> Total price: {products?.reduce((prev, cur) => prev + cur.price,0)?.toFixed(2)}€</span> 
+                 <span className="totalPrice"> Total price: {products?.reduce((prev, cur) => prev + cur.units*cur.price,0)?.toFixed(2)}€</span> 
                 </p>
             </div>
         </div>

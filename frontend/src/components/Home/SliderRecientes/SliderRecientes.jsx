@@ -13,7 +13,6 @@ const SliderRecientes = (props) => {
     lastProducts();
   }, [])
 
-  const image = "http://localhost:3002/images/user/products/" + props.products[0]?.image_path
   if(!props.products) return 'cargando'
   
   return (

@@ -16,7 +16,7 @@ const Products = (props) => {
              <h1 className="title">All products</h1>
         <img className="separador" src="https://zelda.com/assets/img/home/hyrule_rule.png" alt=""/>
       <div className="products">
-        { props.products?.map(function(product) {
+        { props.products?.reverse().map(function(product) {
               const image = "http://localhost:3002/images/user/products/" + product.image_path
           return <div key={product._id} className="product">
             <Link className="product" key={product._id} to={'/product/'+product._id}>

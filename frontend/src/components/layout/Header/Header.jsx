@@ -20,6 +20,9 @@ function Header(props) {
     if (e.key === 'Enter') {
       const productName = e.target.value;
       history.push('/search/' + productName);
+    }else{
+
+      const productName = e.target.value;
     }
   }
   return (
@@ -44,7 +47,7 @@ function Header(props) {
         <Menu.Item><Link to="/about">About</Link></Menu.Item>
         {role=== 'admin' ? <Menu.Item><Link to="/admin">Admin</Link></Menu.Item> : ''}
         {console.log(role)}
-        <Menu.Item><Search onKeyUp={handleChange} placeholder="search product"
+        <Menu.Item><Search onKeyUp={handleChange} onClick={handleChange} placeholder="search product"
           onSearch={value => value}
           style={{ width: 200 }}
         /></Menu.Item>
@@ -53,7 +56,7 @@ function Header(props) {
           <div className="userZone">
             <UserOutlined />
             <Link to='/profile' >{props.user.user.nombre}</Link>
-            <Link to='/login' onClick={logout}>Logout</Link>
+            <Link to='/' onClick={logout}>Logout</Link>
             <Badge className="carrito" count={props.cart?.length}>
             <Link to='/steps' ><ShoppingCartOutlined  /></Link> 
             </Badge>

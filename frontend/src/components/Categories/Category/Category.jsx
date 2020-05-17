@@ -15,18 +15,25 @@ export const Category = (props) => {
     return (
         <div className="categories">
                 <img className="separador" src="https://zelda.com/assets/img/home/hyrule_rule.png" alt=""/>  
-            {props.categories?.map((category) => (<div key={category._id} className="category">
-            <Link className="product" to={'/product/'+category._id}>
-            <Card
-                    hoverable
-                    cover={<img alt="example" src={category.image_path} />}
-                >
-                    {console.log(category)}
-                    <Meta title={category.name} description={category.price + '€'} />
-                </Card></Link>
-                
+            {props.categories?.map((category) =>       {
+                 const image = "http://localhost:3002/images/user/products/" + category.image_path
+                return(<div key={category._id} className="category">
+                    <Link className="product" to={'/product/'+category._id}>
+                    <Card
+                            hoverable
+                            cover={category.image_path?.includes('http') ?
+                            <img src={category.image_path} alt="" /> : <img src={image} alt="" />
+                          }
+                        >
+                            {console.log(category)}
+                            <Meta title={category.name} description={category.price + '€'} />
+                        </Card></Link>
+                        
+        
+                    </div>)
+            }       
 
-            </div>))
+            )
             }
         </div>
 

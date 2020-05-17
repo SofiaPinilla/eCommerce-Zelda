@@ -10,7 +10,11 @@ const product = (state = { cart: [] }, action) => {
                 ...state,
                 cart: [...state.cart, action.payload]
             }
-
+        case 'SEARCH':
+            return {
+                ...state,
+                search: action.payload
+            }
         case 'SET_CART':
             return {
                 ...state,

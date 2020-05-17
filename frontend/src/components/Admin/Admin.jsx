@@ -92,7 +92,8 @@ const Admin = (props) => {
               <form action="" onSubmit={handle2}>
                 <Input name="name" placeholder="add name" />
                 <Input name="description" placeholder="add description" />
-<input type="file" name="imageProduct"/>
+<input type="file" name="imageProduct"  className="inputFile"/>
+
                  <p>Price:    <InputNumber name="price" size="large" min={1} max={100000} defaultValue={3} /> €</p>
                 <p>Stock:  <InputNumber name="stock" size="large" min={1} max={100000} defaultValue={3} /></p>
                 <Button type="primary" >
