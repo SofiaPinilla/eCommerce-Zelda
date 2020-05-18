@@ -12,10 +12,10 @@ comprar,etc.
 #### Preview
 
 
-![foto](magenes/foto1.png) 
+![foto](imagenes/foto1.png) 
 
 
-![foto](magenes/foto2.png) 
+![foto](imagenes/foto2.PNG) 
 
 ---
 
