@@ -12,10 +12,10 @@ comprar,etc.
 #### Preview
 
 
-![foto](imagenes/foto1.PNG) 
+![foto](imagenes/zelda1.gif) 
 
 
-![foto](imagenes/foto2.PNG) 
+![foto](imagenes/sofia1.gif) 
 
 ---
 
