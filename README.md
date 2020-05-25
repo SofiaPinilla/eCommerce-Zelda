@@ -19,7 +19,7 @@ comprar,etc. Además si eres administrador puedes acceder a la vista admin donde
 
 Vista admin, donde puedes crear, editar y borrar productos.
 
-![foto](imagenes/admiin.gif) 
+![foto](imagenes/admiin.PNG) 
 ---
 
 
