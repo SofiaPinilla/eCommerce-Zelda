@@ -1,7 +1,7 @@
 # eCommerce-Zelda
 Mi Ecommerce de Zelda
 Este proyecto es un ecommerce de The Legend of Zelda, en el cual puedes buscar productos, guardarlos en tu lista de deseos, comentar, 
-comprar,etc.
+comprar,etc. Además si eres administrador puedes acceder a la vista admin donde creas, editas y borras productos.
 
 ## Tecnologías que he utilizado 🛠️
 
@@ -17,6 +17,9 @@ comprar,etc.
 
 ![foto](imagenes/sofia1.gif) 
 
+Vista admin, donde puedes crear, editar y borrar productos.
+
+![foto](imagenes/admiin.gif) 
 ---
 
 
