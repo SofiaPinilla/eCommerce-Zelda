@@ -6,7 +6,6 @@ const Amiibos = () => {
     return (
         <div className="search2">
                    <h1 className="busca">Look for Amiibos!  <Button ghost><Link to="/category/Amiibos">Click here</Link></Button></h1>
-                {/* <img src={link} alt=""/>    */}
         </div>
     )
 }

@@ -22,9 +22,7 @@ const ProductController = {
             })
     },
     getProductsByName(req, res) {
-        // Product.find({ name: /.*req.params.name.*/i })
         const name = new RegExp(`${req.params.name}`, 'i')
-        console.log(name)
         Product.aggregate([{
                 $match: {
                     name
@@ -59,10 +57,8 @@ const ProductController = {
     },
     async like(req, res) {
         try {
-            // if (product.likes.includes()) {}
             const product = await Product.findByIdAndUpdate(req.params._id, { $push: { favoritos: req.user._id } }, { new: true });
             const user = await User.findByIdAndUpdate(req.user._id, { $push: { favoritos: req.params._id } }, { new: true });
-
             res.send(product);
         } catch (error) {
             console.error(error);

@@ -67,7 +67,6 @@ class OrderSteps extends React.Component {
           {current === steps.length -1 && (
             <Link to='/' > <Button type="primary" onClick={() =>  order(orderita)}>
             Finish checkout
-            {console.log(orderita)}
           </Button></Link>
            
           )}

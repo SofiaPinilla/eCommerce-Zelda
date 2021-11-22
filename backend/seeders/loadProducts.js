@@ -19,9 +19,7 @@ axios.get('http://localhost:3001/products')
                         stock: 10,
                         CategoryId: '5ead8df3174cc9ac477107dc',
                     })
-                    console.log(productCreated._id)
                     const cat = await Category.findByIdAndUpdate('5ead8df3174cc9ac477107dc', { $push: { ProductId: productCreated._id } });
-                    console.log(cat)
                 }
             }
         } catch (error) {

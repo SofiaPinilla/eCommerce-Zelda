@@ -46,7 +46,6 @@ function Header(props) {
         </SubMenu>
         <Menu.Item><Link to="/about">About</Link></Menu.Item>
         {role=== 'admin' ? <Menu.Item><Link to="/admin">Admin</Link></Menu.Item> : ''}
-        {console.log(role)}
         <Menu.Item><Search onKeyUp={handleChange} onClick={handleChange} placeholder="search product"
           onSearch={value => value}
           style={{ width: 200 }}

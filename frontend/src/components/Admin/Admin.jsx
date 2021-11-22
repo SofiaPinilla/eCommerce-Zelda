@@ -64,7 +64,6 @@ const Admin = (props) => {
           </Button>
         </form>
       </div>
-      {console.log(props.products)}
       {props.products?.map(product => {
         const image = "http://localhost:3002/images/user/products/" + product.image_path
         const handle2 = (event) => {
@@ -83,7 +82,6 @@ const Admin = (props) => {
           .catch((error)=>{
              console.error(error)
           })
-          console.log(product._id)
         }
         const config = {
           title: 'Edit your product!',

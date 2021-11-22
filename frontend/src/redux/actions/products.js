@@ -12,6 +12,13 @@ export const products = async() => {
         console.error(error)
     }
 }
+export const setProducts = (products) =>
+    store.dispatch({
+
+        type: 'SET_PRODUCTS',
+        payload: products
+
+    })
 export const addProduct = async(formData) => {
     try {
         const res = await axios.post('http://localhost:3002/products', formData, {

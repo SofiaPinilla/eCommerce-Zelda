@@ -1,5 +1,7 @@
 import store from '../store';
 import axios from 'axios';
+import { notification } from 'antd';
+
 
 export const login = async(user) => {
     try {
@@ -9,8 +11,12 @@ export const login = async(user) => {
             user: res.data
         })
         localStorage.setItem('authToken', res.data.token);
+        notification.success({ message: 'Connected successfully', description: 'Welcome' })
+            // localStorage.setItem('authToken',res.data.token)
+
     } catch (error) {
         console.error(error)
+        notification.error({ message: 'Failed connection', description: 'Incorrect User or Password' })
     }
 }
 export const register = async(user) => {

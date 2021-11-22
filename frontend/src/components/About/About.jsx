@@ -9,7 +9,6 @@ export default function About() {
         <div>
               <div class="imagenAbout">
                   <Titulo/>
-         {/* <img src="https://zelda.com/assets/img/about/header-about.jpg" alt=""/>    */}
         </div>
             <Characters/>
         </div>

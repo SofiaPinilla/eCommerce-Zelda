@@ -25,7 +25,6 @@ export const Category = (props) => {
                             <img src={category.image_path} alt="" /> : <img src={image} alt="" />
                           }
                         >
-                            {console.log(category)}
                             <Meta title={category.name} description={category.price + '€'} />
                         </Card></Link>
                         
