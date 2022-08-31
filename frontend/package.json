@@ -9,7 +9,7 @@
     "antd": "^4.1.4",
     "axios": "^0.19.2",
     "moment": "^2.25.3",
-    "moment-timezone": "^0.5.31",
+    "moment-timezone": "^0.5.35",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-favicon": "0.0.18",
